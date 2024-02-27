@@ -29,10 +29,10 @@ namespace WindowsFormsApp1
             string apiUrl = $"{BaseURL.apibaseURL}/{"booking/add-pax-record"}";
 
             // Gọi API bất đồng bộ và xử lý kết quả
-            string result = await CallApiAsync(apiUrl, textBox1.Text, textBox2.Text,textBox3.Text);
+            string result = await CallApiAsync(apiUrl, textBox1.Text, textBox2.Text);
             textBox4.Text = result;
         }
-        private async Task<string> CallApiAsync(string apiUrl, string trip_id, string voyage_date, string Pax_Details)
+        private async Task<string> CallApiAsync(string apiUrl, string trip_id, string voyage_date)
         {
             using (HttpClient httpClient = new HttpClient())
             {
@@ -40,13 +40,43 @@ namespace WindowsFormsApp1
                 {
                     using (HttpClient client = new HttpClient())
                     {
-                        var result = JsonConvert.DeserializeObject<PaxDetails>(Pax_Details);
+                        List<object> dataList = new List<object>();
+                        foreach (DataGridViewRow row in dataGridView1.Rows)
+                        {
+                            PaxDetails details = new PaxDetails();
+                            details.passport_no = row.Cells["Column1"].Value?.ToString();
+                            details.passport_type = row.Cells["Column2"].Value?.ToString();
+                            details.last_name = row.Cells["Column3"].Value?.ToString();
+                            details.first_name = row.Cells["Column4"].Value?.ToString();
+                            details.gender = row.Cells["Column5"].Value?.ToString();
+                            details.nationality = row.Cells["Column6"].Value?.ToString();
+                            details.dob = row.Cells["Column7"].Value?.ToString();
+                            details.country_of_birth = row.Cells["Column8"].Value?.ToString();
+                            details.travel_doc_exp_date = row.Cells["Column9"].Value?.ToString();
+                            details.country_of_issue = row.Cells["Column10"].Value?.ToString();
+                            details.country_of_residence = row.Cells["Column11"].Value?.ToString();
+                            details.destination = row.Cells["Column12"].Value?.ToString();
+                            details.ticket_no = row.Cells["Column13"].Value?.ToString();
+                            details.remarks = row.Cells["Column14"].Value?.ToString();
+                            details.customer_book_code = row.Cells["Column15"].Value?.ToString();
+                            details.cabin = row.Cells["Column16"].Value?.ToString();
+                            details.pax_type = row.Cells["Column17"].Value?.ToString();
+                            details.bag_allowance = Convert.ToInt32(row.Cells["Column18"].Value);
+                            details.additional_bag_allowance = Convert.ToInt32(row.Cells["Column19"].Value);
+                            details.security_program_flag = row.Cells["Column20"].Value?.ToString();
+                            details.membership_no = row.Cells["Column21"].Value?.ToString();
+                            details.check_in = Convert.ToInt32(row.Cells["Column22"].Value);
+                            details.source_check_in = row.Cells["Column23"].Value?.ToString();
+
+                            dataList.Add(details);
+                        }
+                        dataList.RemoveAt(dataList.Count - 1);
                         client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
                         var requestData = new 
                         {
                             trip_id = trip_id,
                             voyage_date = voyage_date,
-                            pax_details = new object[] {result }
+                            pax_details = new object[] { dataList}
                         };
 
                         string jsonRequestData = Newtonsoft.Json.JsonConvert.SerializeObject(requestData);
