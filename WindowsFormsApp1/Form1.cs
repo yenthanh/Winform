@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp1.Model;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace WindowsFormsApp1
@@ -25,7 +26,7 @@ namespace WindowsFormsApp1
         {
             if (textBox1.Text != "" && textBox2.Text != "")
             {
-                string apiUrl = "https://api-spos-new.sqiva.com/ws/v1/auth/login";
+                string apiUrl = $"{BaseURL.apibaseURL}/{"auth/login"}";
 
                 // Gọi API bất đồng bộ và xử lý kết quả
                 string result = await CallApiAsync(apiUrl, textBox1.Text, textBox2.Text);

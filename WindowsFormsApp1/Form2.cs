@@ -26,7 +26,7 @@ namespace WindowsFormsApp1
 
         private async void button1_Click(object sender, EventArgs e)
         {
-            string apiUrl = "https://api-spos-new.sqiva.com/ws/v1/booking/add-pax-record";
+            string apiUrl = $"{BaseURL.apibaseURL}/{"booking/add-pax-record"}";
 
             // Gọi API bất đồng bộ và xử lý kết quả
             string result = await CallApiAsync(apiUrl, textBox1.Text, textBox2.Text,textBox3.Text);
