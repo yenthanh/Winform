@@ -71,7 +71,7 @@ namespace WindowsFormsApp1
                             details.ssr = new List<string>();
                             if (row.Cells["Column24"].Value != null) {
 
-                                string[] values = row.Cells["Column24"].Value?.ToString().Split(',');
+                                string[] values = row.Cells["Column24"].Value?.ToString().Split(',').Select(value => value.Trim()).ToArray();
                                 foreach (string value in values)
                                 {
                                     details.ssr.Add(value);
