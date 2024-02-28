@@ -40,7 +40,8 @@ namespace WindowsFormsApp1
                 {
                     using (HttpClient client = new HttpClient())
                     {
-                        List<object> dataList = new List<object>();
+                        var a = new PaxDetails[] { };
+
                         foreach (DataGridViewRow row in dataGridView1.Rows)
                         {
                             PaxDetails details = new PaxDetails();
@@ -67,16 +68,26 @@ namespace WindowsFormsApp1
                             details.membership_no = row.Cells["Column21"].Value?.ToString();
                             details.check_in = Convert.ToInt32(row.Cells["Column22"].Value);
                             details.source_check_in = row.Cells["Column23"].Value?.ToString();
+                            details.ssr = new List<string>();
+                            if (row.Cells["Column24"].Value != null) {
 
-                            dataList.Add(details);
+                                string[] values = row.Cells["Column24"].Value?.ToString().Split(',');
+                                foreach (string value in values)
+                                {
+                                    details.ssr.Add(value);
+                                }
+                            }
+
+                            a = a.Concat(new PaxDetails[] { details }).ToArray();
                         }
-                        dataList.RemoveAt(dataList.Count - 1);
+
+                        Array.Resize(ref a, a.Length - 1);
                         client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
                         var requestData = new 
                         {
                             trip_id = trip_id,
                             voyage_date = voyage_date,
-                            pax_details = new object[] { dataList}
+                            pax_details = a
                         };
 
                         string jsonRequestData = Newtonsoft.Json.JsonConvert.SerializeObject(requestData);
