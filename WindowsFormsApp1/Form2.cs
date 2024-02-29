@@ -8,9 +8,11 @@ using System.Drawing;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
+using System.Text.Json.Nodes;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.Model;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace WindowsFormsApp1
@@ -30,7 +32,6 @@ namespace WindowsFormsApp1
 
             // Gọi API bất đồng bộ và xử lý kết quả
             string result = await CallApiAsync(apiUrl, textBox1.Text, textBox2.Text);
-            textBox4.Text = result;
         }
         private async Task<string> CallApiAsync(string apiUrl, string trip_id, string voyage_date)
         {
@@ -41,6 +42,7 @@ namespace WindowsFormsApp1
                     using (HttpClient client = new HttpClient())
                     {
                         var a = new PaxDetails[] { };
+                        var data = new ResponseArray[] { };
 
                         foreach (DataGridViewRow row in dataGridView1.Rows)
                         {
@@ -97,11 +99,23 @@ namespace WindowsFormsApp1
 
                         if (response.IsSuccessStatusCode)
                         {
+                            string jsonResponse = await response.Content.ReadAsStringAsync();
+                            JObject json = JObject.Parse(jsonResponse);
+                            txterr_msg.Text = json["err_msg"].ToString();
+                            txterr_num.Text = json["err_num"].ToString();
+
+                            ResponseArray[] datares = JsonConvert.DeserializeObject<ResponseArray[]>(json["data"].ToString());
+                            foreach (var dt in datares)
+                            {
+                                dataGridView2.Rows.Add(dt.out_num, dt.out_str, dt.boarding_pass_number, dt.pax_id);
+                            }
                             return await response.Content.ReadAsStringAsync();
                         }
                         else
                         {
-                            return await response.Content.ReadAsStringAsync();
+                            string error = await response.Content.ReadAsStringAsync();
+                            MessageBox.Show(error);
+                            return error;
                         }
                     }
                 }

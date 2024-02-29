@@ -95,6 +95,7 @@
     </Compile>
     <Compile Include="Model\BaseURL.cs" />
     <Compile Include="Model\PaxDetails.cs" />
+    <Compile Include="Model\ResponseArray.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">

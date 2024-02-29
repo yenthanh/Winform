@@ -34,9 +34,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,10 +59,22 @@
             this.Column22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.txterr_msg = new System.Windows.Forms.TextBox();
+            this.txterr_num = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.out_num = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.out_str = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.boarding_pass_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pax_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -122,34 +131,6 @@
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Pax_Details";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.textBox4);
-            this.groupBox3.Location = new System.Drawing.Point(22, 400);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(664, 264);
-            this.groupBox3.TabIndex = 1;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "API Response";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(6, 33);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(652, 225);
-            this.textBox4.TabIndex = 0;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(279, 365);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(141, 29);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Add All Pax";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // dataGridView1
             // 
@@ -354,6 +335,108 @@
             this.Column24.Name = "Column24";
             this.Column24.Width = 125;
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.dataGridView2);
+            this.groupBox3.Controls.Add(this.txterr_msg);
+            this.groupBox3.Controls.Add(this.txterr_num);
+            this.groupBox3.Controls.Add(this.label4);
+            this.groupBox3.Controls.Add(this.label3);
+            this.groupBox3.Location = new System.Drawing.Point(22, 400);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(664, 264);
+            this.groupBox3.TabIndex = 1;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "API Response";
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.out_num,
+            this.out_str,
+            this.boarding_pass_number,
+            this.pax_id});
+            this.dataGridView2.Location = new System.Drawing.Point(27, 67);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
+            this.dataGridView2.RowHeadersWidth = 51;
+            this.dataGridView2.RowTemplate.Height = 24;
+            this.dataGridView2.Size = new System.Drawing.Size(617, 175);
+            this.dataGridView2.TabIndex = 4;
+            // 
+            // txterr_msg
+            // 
+            this.txterr_msg.Location = new System.Drawing.Point(328, 30);
+            this.txterr_msg.Name = "txterr_msg";
+            this.txterr_msg.ReadOnly = true;
+            this.txterr_msg.Size = new System.Drawing.Size(174, 22);
+            this.txterr_msg.TabIndex = 3;
+            // 
+            // txterr_num
+            // 
+            this.txterr_num.Location = new System.Drawing.Point(85, 27);
+            this.txterr_num.Name = "txterr_num";
+            this.txterr_num.ReadOnly = true;
+            this.txterr_num.Size = new System.Drawing.Size(174, 22);
+            this.txterr_num.TabIndex = 2;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(266, 33);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(56, 16);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "err_msg";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(24, 33);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(55, 16);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "err_num";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(279, 365);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(141, 29);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Add All Pax";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // out_num
+            // 
+            this.out_num.HeaderText = "out_num";
+            this.out_num.MinimumWidth = 6;
+            this.out_num.Name = "out_num";
+            this.out_num.Width = 125;
+            // 
+            // out_str
+            // 
+            this.out_str.HeaderText = "out_str";
+            this.out_str.MinimumWidth = 6;
+            this.out_str.Name = "out_str";
+            this.out_str.Width = 125;
+            // 
+            // boarding_pass_number
+            // 
+            this.boarding_pass_number.HeaderText = "boarding_pass_number";
+            this.boarding_pass_number.MinimumWidth = 6;
+            this.boarding_pass_number.Name = "boarding_pass_number";
+            this.boarding_pass_number.Width = 180;
+            // 
+            // pax_id
+            // 
+            this.pax_id.HeaderText = "pax_id";
+            this.pax_id.MinimumWidth = 6;
+            this.pax_id.Name = "pax_id";
+            this.pax_id.Width = 125;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -368,9 +451,10 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -384,7 +468,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
@@ -411,5 +494,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column22;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column23;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column24;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.TextBox txterr_msg;
+        private System.Windows.Forms.TextBox txterr_num;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn out_num;
+        private System.Windows.Forms.DataGridViewTextBoxColumn out_str;
+        private System.Windows.Forms.DataGridViewTextBoxColumn boarding_pass_number;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pax_id;
     }
 }
