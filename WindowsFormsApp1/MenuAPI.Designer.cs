@@ -33,6 +33,7 @@
             this.btncancelpax = new System.Windows.Forms.Button();
             this.btngetvessel = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnaddpax
@@ -63,6 +64,7 @@
             this.btncancelpax.TabIndex = 3;
             this.btncancelpax.Text = "Cancel Pax";
             this.btncancelpax.UseVisualStyleBackColor = true;
+            this.btncancelpax.Click += new System.EventHandler(this.btncancelpax_Click);
             // 
             // btngetvessel
             // 
@@ -72,6 +74,7 @@
             this.btngetvessel.TabIndex = 2;
             this.btngetvessel.Text = "Get Vessel Code";
             this.btngetvessel.UseVisualStyleBackColor = true;
+            this.btngetvessel.Click += new System.EventHandler(this.btngetvessel_Click);
             // 
             // label1
             // 
@@ -82,11 +85,22 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Choose 1 API";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(608, 65);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(143, 36);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Get Terminal List";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // MenuAPI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(630, 140);
+            this.ClientSize = new System.Drawing.Size(755, 140);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btncancelpax);
             this.Controls.Add(this.btngetvessel);
@@ -106,5 +120,6 @@
         private System.Windows.Forms.Button btncancelpax;
         private System.Windows.Forms.Button btngetvessel;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button1;
     }
 }
