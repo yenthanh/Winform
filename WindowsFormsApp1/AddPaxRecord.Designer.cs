@@ -61,15 +61,15 @@
             this.Column24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.out_num = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.out_str = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.boarding_pass_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pax_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txterr_msg = new System.Windows.Forms.TextBox();
             this.txterr_num = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.out_num = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.out_str = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.boarding_pass_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pax_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -365,6 +365,38 @@
             this.dataGridView2.Size = new System.Drawing.Size(617, 175);
             this.dataGridView2.TabIndex = 4;
             // 
+            // out_num
+            // 
+            this.out_num.HeaderText = "out_num";
+            this.out_num.MinimumWidth = 6;
+            this.out_num.Name = "out_num";
+            this.out_num.ReadOnly = true;
+            this.out_num.Width = 125;
+            // 
+            // out_str
+            // 
+            this.out_str.HeaderText = "out_str";
+            this.out_str.MinimumWidth = 6;
+            this.out_str.Name = "out_str";
+            this.out_str.ReadOnly = true;
+            this.out_str.Width = 125;
+            // 
+            // boarding_pass_number
+            // 
+            this.boarding_pass_number.HeaderText = "boarding_pass_number";
+            this.boarding_pass_number.MinimumWidth = 6;
+            this.boarding_pass_number.Name = "boarding_pass_number";
+            this.boarding_pass_number.ReadOnly = true;
+            this.boarding_pass_number.Width = 180;
+            // 
+            // pax_id
+            // 
+            this.pax_id.HeaderText = "pax_id";
+            this.pax_id.MinimumWidth = 6;
+            this.pax_id.Name = "pax_id";
+            this.pax_id.ReadOnly = true;
+            this.pax_id.Width = 125;
+            // 
             // txterr_msg
             // 
             this.txterr_msg.Location = new System.Drawing.Point(328, 30);
@@ -409,35 +441,7 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // out_num
-            // 
-            this.out_num.HeaderText = "out_num";
-            this.out_num.MinimumWidth = 6;
-            this.out_num.Name = "out_num";
-            this.out_num.Width = 125;
-            // 
-            // out_str
-            // 
-            this.out_str.HeaderText = "out_str";
-            this.out_str.MinimumWidth = 6;
-            this.out_str.Name = "out_str";
-            this.out_str.Width = 125;
-            // 
-            // boarding_pass_number
-            // 
-            this.boarding_pass_number.HeaderText = "boarding_pass_number";
-            this.boarding_pass_number.MinimumWidth = 6;
-            this.boarding_pass_number.Name = "boarding_pass_number";
-            this.boarding_pass_number.Width = 180;
-            // 
-            // pax_id
-            // 
-            this.pax_id.HeaderText = "pax_id";
-            this.pax_id.MinimumWidth = 6;
-            this.pax_id.Name = "pax_id";
-            this.pax_id.Width = 125;
-            // 
-            // Form2
+            // AddPaxRecord
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -446,7 +450,7 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Name = "Form2";
+            this.Name = "AddPaxRecord";
             this.Text = "Add Pax Record";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

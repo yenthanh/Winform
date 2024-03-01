@@ -31,5 +31,23 @@ namespace WindowsFormsApp1
             UpdatePaxRecord updatepax = new UpdatePaxRecord(Token);
             updatepax.Show();
         }
+
+        private void btncancelpax_Click(object sender, EventArgs e)
+        {
+            CancelPaxRecord cancelpax = new CancelPaxRecord(Token);
+            cancelpax.Show();
+        }
+
+        private void btngetvessel_Click(object sender, EventArgs e)
+        {
+            GetVesselCodeRecord getVesselCode = new GetVesselCodeRecord(Token);
+            getVesselCode.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            GetTerminalListRecord getTerminalList = new GetTerminalListRecord(Token);
+            getTerminalList.Show();
+        }
     }
 }
