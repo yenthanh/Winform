@@ -26,7 +26,7 @@ namespace WindowsFormsApp1
 
         private async void btnClickTelminalList_Click(object sender, EventArgs e)
         {
-            string apiUrl = $"{Helper.BaseURL}/{"information/get-terminal-list"}";
+            string apiUrl = $"{Helper.BaseURLdcs}/{"information/get-terminal-list"}";
             string result = await GetTerminalList(apiUrl);
         }
         private async Task<string> GetTerminalList(string apiUrl)
