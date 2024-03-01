@@ -22,15 +22,18 @@ namespace WindowsFormsApp1.Model
         public string destination { get; set; }
         public string ticket_no { get; set; }
         public string remarks { get; set; }
-        public string customer_book_code { get; set; }
         public string cabin { get; set; }
         public string pax_type { get; set; }
         public int bag_allowance { get; set; }
         public int additional_bag_allowance { get; set; }
         public string security_program_flag { get; set; }
         public string membership_no { get; set; }
+        public List<string> ssr { get; set; }
+    }
+    public class PaxDetailsAdd : PaxDetails
+    {
+        public string customer_book_code { get; set; }
         public int check_in { get; set; }
         public string source_check_in { get; set; }
-        public List<string> ssr { get; set; }
     }
 }

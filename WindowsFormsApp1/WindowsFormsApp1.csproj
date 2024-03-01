@@ -81,28 +81,43 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="API_Helper\Helper.cs" />
+    <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form2.cs">
+    <Compile Include="AddPaxRecord.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <Compile Include="AddPaxRecord.Designer.cs">
+      <DependentUpon>AddPaxRecord.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\BaseURL.cs" />
+    <Compile Include="MenuAPI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuAPI.Designer.cs">
+      <DependentUpon>MenuAPI.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\PaxDetails.cs" />
     <Compile Include="Model\ResponseArray.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="UpdatePaxRecord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdatePaxRecord.Designer.cs">
+      <DependentUpon>UpdatePaxRecord.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <EmbeddedResource Include="AddPaxRecord.resx">
+      <DependentUpon>AddPaxRecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuAPI.resx">
+      <DependentUpon>MenuAPI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -113,6 +128,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UpdatePaxRecord.resx">
+      <DependentUpon>UpdatePaxRecord.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

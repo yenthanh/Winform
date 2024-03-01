@@ -11,16 +11,17 @@ using System.Text;
 using System.Text.Json.Nodes;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp1.API_Helper;
 using WindowsFormsApp1.Model;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace WindowsFormsApp1
 {
-    public partial class Form2 : Form
+    public partial class AddPaxRecord : Form
     {
         private static string token;
-        public Form2(string Token)
+        public AddPaxRecord(string Token)
         {
             InitializeComponent();
             token = Token;
@@ -28,12 +29,11 @@ namespace WindowsFormsApp1
 
         private async void button1_Click(object sender, EventArgs e)
         {
-            string apiUrl = $"{BaseURL.apibaseURL}/{"booking/add-pax-record"}";
+            string apiUrl = $"{Helper.BaseURL}/{"booking/add-pax-record"}";
 
-            // Gọi API bất đồng bộ và xử lý kết quả
-            string result = await CallApiAsync(apiUrl, textBox1.Text, textBox2.Text);
+            await AddPax(apiUrl, textBox1.Text, textBox2.Text);
         }
-        private async Task<string> CallApiAsync(string apiUrl, string trip_id, string voyage_date)
+        private async Task<string> AddPax(string apiUrl, string trip_id, string voyage_date)
         {
             using (HttpClient httpClient = new HttpClient())
             {
@@ -41,12 +41,12 @@ namespace WindowsFormsApp1
                 {
                     using (HttpClient client = new HttpClient())
                     {
-                        var a = new PaxDetails[] { };
+                        var a = new PaxDetailsAdd[] { };
                         var data = new ResponseArray[] { };
 
                         foreach (DataGridViewRow row in dataGridView1.Rows)
                         {
-                            PaxDetails details = new PaxDetails();
+                            PaxDetailsAdd details = new PaxDetailsAdd();
                             details.passport_no = row.Cells["Column1"].Value?.ToString();
                             details.passport_type = row.Cells["Column2"].Value?.ToString();
                             details.last_name = row.Cells["Column3"].Value?.ToString();
@@ -80,7 +80,7 @@ namespace WindowsFormsApp1
                                 }
                             }
 
-                            a = a.Concat(new PaxDetails[] { details }).ToArray();
+                            a = a.Concat(new PaxDetailsAdd[] { details }).ToArray();
                         }
 
                         Array.Resize(ref a, a.Length - 1);
@@ -104,7 +104,7 @@ namespace WindowsFormsApp1
                             txterr_msg.Text = json["err_msg"].ToString();
                             txterr_num.Text = json["err_num"].ToString();
 
-                            ResponseArray[] datares = JsonConvert.DeserializeObject<ResponseArray[]>(json["data"].ToString());
+                            ResponseArrayFull[] datares = JsonConvert.DeserializeObject<ResponseArrayFull[]>(json["data"].ToString());
                             foreach (var dt in datares)
                             {
                                 dataGridView2.Rows.Add(dt.out_num, dt.out_str, dt.boarding_pass_number, dt.pax_id);

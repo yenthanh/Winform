@@ -9,15 +9,16 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp1.API_Helper;
 using WindowsFormsApp1.Model;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace WindowsFormsApp1
 {
-    public partial class Form1 : Form
+    public partial class Login : Form
     {
         private static string Token;
-        public Form1()
+        public Login()
         {
             InitializeComponent();
         }
@@ -26,14 +27,13 @@ namespace WindowsFormsApp1
         {
             if (textBox1.Text != "" && textBox2.Text != "")
             {
-                string apiUrl = $"{BaseURL.apibaseURL}/{"auth/login"}";
+                string apiUrl = $"{Helper.BaseURL}/{"auth/login"}";
 
-                // Gọi API bất đồng bộ và xử lý kết quả
                 string result = await CallApiAsync(apiUrl, textBox1.Text, textBox2.Text);
 
                 MessageBox.Show(result);
-                Form2 form2 = new Form2(Token);
-                form2.ShowDialog();
+                MenuAPI menu = new MenuAPI(Token);
+                menu.ShowDialog();
                 this.Close();
 
             }
@@ -53,7 +53,6 @@ namespace WindowsFormsApp1
 
                     formData.Add(new StringContent(password), "password");
 
-                    // Gửi yêu cầu POST đến API với dữ liệu form-data
                     HttpResponseMessage response = await httpClient.PostAsync(apiUrl, formData);
 
                     if (response.IsSuccessStatusCode)
