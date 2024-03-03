@@ -94,6 +94,12 @@
     <Compile Include="GetTerminalListRecord.Designer.cs">
       <DependentUpon>GetTerminalListRecord.cs</DependentUpon>
     </Compile>
+    <Compile Include="GetTripInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GetTripInfo.Designer.cs">
+      <DependentUpon>GetTripInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="GetVesselCodeRecord.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +127,7 @@
     <Compile Include="Model\PaxDetails.cs" />
     <Compile Include="Model\ResponseArray.cs" />
     <Compile Include="Model\TerminalList.cs" />
+    <Compile Include="Model\TripInfo.cs" />
     <Compile Include="Model\VesselPaxCode.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -135,6 +142,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GetTerminalListRecord.resx">
       <DependentUpon>GetTerminalListRecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GetTripInfo.resx">
+      <DependentUpon>GetTripInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GetVesselCodeRecord.resx">
       <DependentUpon>GetVesselCodeRecord.cs</DependentUpon>
