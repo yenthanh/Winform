@@ -47,8 +47,8 @@ namespace WindowsFormsApp1
                             JObject json = JObject.Parse(jsonResponse);
                             txterr_msg.Text = json["err_msg"].ToString();
                             txterr_num.Text = json["err_num"].ToString();
-                            GetPaxList[] data = JsonConvert.DeserializeObject<GetPaxList[]>(json["data"].ToString());
-                            foreach (GetPaxList a in data)
+                            Model.GetPaxList[] data = JsonConvert.DeserializeObject<Model.GetPaxList[]>(json["data"].ToString());
+                            foreach (Model.GetPaxList a in data)
                             {
                                 dataGridView2.Rows.Add(a.pax_id, a.passport_number, a.ticket_number,
                                                        a.last_name, a.first_name, a.customer_booking_code

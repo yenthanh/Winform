@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1
 {
-    partial class GetVesselCodeRecord
+    partial class GetVesselCode
     {
         /// <summary>
         /// Required designer variable.

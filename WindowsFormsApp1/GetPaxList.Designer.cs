@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1
 {
-    partial class GetPaxListRecord
+    partial class GetPaxList
     {
         /// <summary>
         /// Required designer variable.
@@ -92,7 +92,7 @@
             this.voyage_date.Size = new System.Drawing.Size(87, 16);
             this.voyage_date.TabIndex = 24;
             this.voyage_date.Text = "voyage_date";
-            this.voyage_date.Click += new System.EventHandler(this.voyage_date_Click);
+     
             // 
             // groupBox3
             // 
@@ -107,7 +107,7 @@
             this.groupBox3.TabIndex = 22;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Get Pax List";
-            this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
+           
             // 
             // dataGridView2
             // 
@@ -159,7 +159,7 @@
             this.dataGridView2.RowTemplate.Height = 24;
             this.dataGridView2.Size = new System.Drawing.Size(555, 175);
             this.dataGridView2.TabIndex = 4;
-            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
+          
             // 
             // pax_id
             // 
@@ -480,7 +480,7 @@
             this.txterr_msg.ReadOnly = true;
             this.txterr_msg.Size = new System.Drawing.Size(174, 22);
             this.txterr_msg.TabIndex = 3;
-            this.txterr_msg.TextChanged += new System.EventHandler(this.txterr_msg_TextChanged);
+
             // 
             // txterr_num
             // 
@@ -489,7 +489,7 @@
             this.txterr_num.ReadOnly = true;
             this.txterr_num.Size = new System.Drawing.Size(174, 22);
             this.txterr_num.TabIndex = 2;
-            this.txterr_num.TextChanged += new System.EventHandler(this.txterr_num_TextChanged);
+          
             // 
             // label4
             // 
@@ -499,7 +499,7 @@
             this.label4.Size = new System.Drawing.Size(56, 16);
             this.label4.TabIndex = 1;
             this.label4.Text = "err_msg";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
+        
             // 
             // label3
             // 
@@ -509,7 +509,7 @@
             this.label3.Size = new System.Drawing.Size(55, 16);
             this.label3.TabIndex = 0;
             this.label3.Text = "err_num";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+          
             // 
             // trip_id
             // 
@@ -519,7 +519,7 @@
             this.trip_id.Size = new System.Drawing.Size(43, 16);
             this.trip_id.TabIndex = 23;
             this.trip_id.Text = "trip_id";
-            this.trip_id.Click += new System.EventHandler(this.trip_id_Click);
+         
             // 
             // txt2
             // 
@@ -527,7 +527,7 @@
             this.txt2.Name = "txt2";
             this.txt2.Size = new System.Drawing.Size(174, 22);
             this.txt2.TabIndex = 26;
-            this.txt2.TextChanged += new System.EventHandler(this.txt2_TextChanged);
+          
             // 
             // txt1
             // 
@@ -535,7 +535,7 @@
             this.txt1.Name = "txt1";
             this.txt1.Size = new System.Drawing.Size(174, 22);
             this.txt1.TabIndex = 25;
-            this.txt1.TextChanged += new System.EventHandler(this.txt1_TextChanged);
+    
             // 
             // button1
             // 
@@ -555,7 +555,7 @@
             this.label1.Size = new System.Drawing.Size(97, 16);
             this.label1.TabIndex = 28;
             this.label1.Text = "include_cancel";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+       
             // 
             // txt3
             // 
@@ -564,7 +564,7 @@
             this.txt3.Size = new System.Drawing.Size(174, 22);
             this.txt3.TabIndex = 29;
             this.txt3.Text = "\r\n";
-            this.txt3.TextChanged += new System.EventHandler(this.txt3_TextChanged);
+           
             // 
             // GetPaxListRecord
             // 

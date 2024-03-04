@@ -17,10 +17,10 @@ using System.Web.UI.WebControls;
 
 namespace WindowsFormsApp1
 {
-    public partial class GetVesselCodeRecord : Form
+    public partial class GetVesselCode : Form
     {
         private static string token;
-        public GetVesselCodeRecord(string Token)
+        public GetVesselCode(string Token)
         {
             InitializeComponent();
             token = Token;
@@ -29,9 +29,9 @@ namespace WindowsFormsApp1
         private async void btnClickGetVesselCode_Click(object sender, EventArgs e)
         {
             string apiUrl = $"{Helper.BaseURL}/{"information/get-vessel-code"}";
-            string result = await GetVesselCode(apiUrl);
+            string result = await GetVessel(apiUrl);
         }
-        private async Task<string> GetVesselCode(string apiUrl)
+        private async Task<string> GetVessel(string apiUrl)
         {
             using (HttpClient httpClient = new HttpClient())
             {

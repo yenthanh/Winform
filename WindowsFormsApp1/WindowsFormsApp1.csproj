@@ -82,11 +82,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="API_Helper\Helper.cs" />
-    <Compile Include="CancelPaxRecord.cs">
+    <Compile Include="CancelPax.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CancelPaxRecord.Designer.cs">
-      <DependentUpon>CancelPaxRecord.cs</DependentUpon>
+    <Compile Include="CancelPax.Designer.cs">
+      <DependentUpon>CancelPax.cs</DependentUpon>
     </Compile>
     <Compile Include="GetPaxDetail.cs">
       <SubType>Form</SubType>
@@ -94,29 +94,29 @@
     <Compile Include="GetPaxDetail.Designer.cs">
       <DependentUpon>GetPaxDetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="GetPaxInfoRecord.cs">
+    <Compile Include="GetPaxInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GetPaxInfoRecord.Designer.cs">
-      <DependentUpon>GetPaxInfoRecord.cs</DependentUpon>
+    <Compile Include="GetPaxInfo.Designer.cs">
+      <DependentUpon>GetPaxInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="GetPaxListRecord.cs">
+    <Compile Include="GetPaxList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GetPaxListRecord.Designer.cs">
-      <DependentUpon>GetPaxListRecord.cs</DependentUpon>
+    <Compile Include="GetPaxList.Designer.cs">
+      <DependentUpon>GetPaxList.cs</DependentUpon>
     </Compile>
-    <Compile Include="GetTerminalListRecord.cs">
+    <Compile Include="GetTerminalList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GetTerminalListRecord.Designer.cs">
-      <DependentUpon>GetTerminalListRecord.cs</DependentUpon>
+    <Compile Include="GetTerminalList.Designer.cs">
+      <DependentUpon>GetTerminalList.cs</DependentUpon>
     </Compile>
-    <Compile Include="GetTripInfoRecord.cs">
+    <Compile Include="GetTripInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GetTripInfoRecord.Designer.cs">
-      <DependentUpon>GetTripInfoRecord.cs</DependentUpon>
+    <Compile Include="GetTripInfo.Designer.cs">
+      <DependentUpon>GetTripInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="GetTripList.cs">
       <SubType>Form</SubType>
@@ -124,11 +124,11 @@
     <Compile Include="GetTripList.Designer.cs">
       <DependentUpon>GetTripList.cs</DependentUpon>
     </Compile>
-    <Compile Include="GetVesselCodeRecord.cs">
+    <Compile Include="GetVesselCode.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GetVesselCodeRecord.Designer.cs">
-      <DependentUpon>GetVesselCodeRecord.cs</DependentUpon>
+    <Compile Include="GetVesselCode.Designer.cs">
+      <DependentUpon>GetVesselCode.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -151,7 +151,7 @@
     <Compile Include="Model\GetPaxList.cs" />
     <Compile Include="Model\PaxDetails.cs" />
     <Compile Include="Model\ResponseArray.cs" />
-    <Compile Include="Model\SubmitCheckIn.cs" />
+    <Compile Include="Model\SmCheckIn.cs" />
     <Compile Include="Model\TerminalList.cs" />
     <Compile Include="Model\TripInfo.cs" />
     <Compile Include="Model\VesselPaxCode.cs" />
@@ -169,29 +169,29 @@
     <Compile Include="UpdatePaxRecord.Designer.cs">
       <DependentUpon>UpdatePaxRecord.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="CancelPaxRecord.resx">
-      <DependentUpon>CancelPaxRecord.cs</DependentUpon>
+    <EmbeddedResource Include="CancelPax.resx">
+      <DependentUpon>CancelPax.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GetPaxDetail.resx">
       <DependentUpon>GetPaxDetail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GetPaxInfoRecord.resx">
-      <DependentUpon>GetPaxInfoRecord.cs</DependentUpon>
+    <EmbeddedResource Include="GetPaxInfo.resx">
+      <DependentUpon>GetPaxInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GetPaxListRecord.resx">
-      <DependentUpon>GetPaxListRecord.cs</DependentUpon>
+    <EmbeddedResource Include="GetPaxList.resx">
+      <DependentUpon>GetPaxList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GetTerminalListRecord.resx">
-      <DependentUpon>GetTerminalListRecord.cs</DependentUpon>
+    <EmbeddedResource Include="GetTerminalList.resx">
+      <DependentUpon>GetTerminalList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GetTripInfoRecord.resx">
-      <DependentUpon>GetTripInfoRecord.cs</DependentUpon>
+    <EmbeddedResource Include="GetTripInfo.resx">
+      <DependentUpon>GetTripInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GetTripList.resx">
       <DependentUpon>GetTripList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GetVesselCodeRecord.resx">
-      <DependentUpon>GetVesselCodeRecord.cs</DependentUpon>
+    <EmbeddedResource Include="GetVesselCode.resx">
+      <DependentUpon>GetVesselCode.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

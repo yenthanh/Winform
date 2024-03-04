@@ -42,7 +42,7 @@ namespace WindowsFormsApp1
                     using (HttpClient client = new HttpClient())
                     {
                         var a = new PaxDetailsAdd[] { };
-                        var data = new ResponseArray[] { };
+                        var data = new ResponseArray[] { }; 
 
                         foreach (DataGridViewRow row in dataGridView1.Rows)
                         {

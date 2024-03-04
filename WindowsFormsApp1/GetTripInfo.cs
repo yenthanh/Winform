@@ -15,17 +15,17 @@ using WindowsFormsApp1.Model;
 
 namespace WindowsFormsApp1
 {
-    public partial class GetTripInfoRecord : Form
+    public partial class GetTripInfo : Form
     {
         private static string token;
-        public GetTripInfoRecord(string Token)
+        public GetTripInfo(string Token)
 
         {
             InitializeComponent();
             token = Token;
         }
 
-        private async void button1_Click(object sender, EventArgs e)
+        private async void button1_Click_1(object sender, EventArgs e)
         {
             string apiUrl = $"{Helper.BaseURLdcs}/{"information/get-trip-info?trip_id=" + txt1.Text + "&voyage_date=" + txt2.Text + ""}";
             string result = await GetTripIn(apiUrl);
@@ -83,54 +83,6 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void txterr_msg_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txterr_num_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txt2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txt1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void voyage_date_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void trip_id_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox3_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+       
     }
 }

@@ -25,74 +25,41 @@ namespace WindowsFormsApp1
             token = Token;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
-            string apiUrl = $"{Helper.BaseURL}/{"booking/add-pax-record"}";
+            string apiUrl = $"{Helper.BaseURLdcs}/{"check-in/submit-check-in"}";
+            string[] paxDetailsArray = txt3.Text.Split(new char[] { ',', ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            List<int> paxDetailsList = new List<int>();
 
-            await AddPax(apiUrl, textBox1.Text, textBox2.Text);
+            foreach (string value in paxDetailsArray)
+            {
+                if (int.TryParse(value, out int intValue))
+                {
+                    paxDetailsList.Add(intValue);
+                }
+            }
+
+            await SubmitCheckInn(apiUrl, txt1.Text, txt2.Text, paxDetailsList);
         }
-        private async Task<string> AddPax(string apiUrl, string trip_id, string voyage_date)
+        private async Task<string> SubmitCheckInn(string apiUrl, string trip_id, string voyage_date, List<int> pax_details)
         {
             using (HttpClient httpClient = new HttpClient())
             {
                 try
                 {
+                    var a = new object[] { };
                     using (HttpClient client = new HttpClient())
-                    {
-                        var a = new SubmitCheckIn[] { };
-                        var data = new ResponseArray[] { };
-
-                        foreach (DataGridViewRow row in dataGridView1.Rows)
-                        {
-                            SubmitCheckIn details = new SubmitCheckIn();
-                            details.passport_no = row.Cells["Column1"].Value?.ToString();
-                            details.passport_type = row.Cells["Column2"].Value?.ToString();
-                            details.last_name = row.Cells["Column3"].Value?.ToString();
-                            details.first_name = row.Cells["Column4"].Value?.ToString();
-                            details.gender = row.Cells["Column5"].Value?.ToString();
-                            details.nationality = row.Cells["Column6"].Value?.ToString();
-                            details.dob = row.Cells["Column7"].Value?.ToString();
-                            details.country_of_birth = row.Cells["Column8"].Value?.ToString();
-                            details.travel_doc_exp_date = row.Cells["Column9"].Value?.ToString();
-                            details.country_of_issue = row.Cells["Column10"].Value?.ToString();
-                            details.country_of_residence = row.Cells["Column11"].Value?.ToString();
-                            details.destination = row.Cells["Column12"].Value?.ToString();
-                            details.ticket_no = row.Cells["Column13"].Value?.ToString();
-                            details.remarks = row.Cells["Column14"].Value?.ToString();
-                            details.customer_book_code = row.Cells["Column15"].Value?.ToString();
-                            details.cabin = row.Cells["Column16"].Value?.ToString();
-                            details.pax_type = row.Cells["Column17"].Value?.ToString();
-                            details.bag_allowance = Convert.ToInt32(row.Cells["Column18"].Value);
-                            details.additional_bag_allowance = Convert.ToInt32(row.Cells["Column19"].Value);
-                            details.security_program_flag = row.Cells["Column20"].Value?.ToString();
-                            details.membership_no = row.Cells["Column21"].Value?.ToString();
-                            details.check_in = Convert.ToInt32(row.Cells["Column22"].Value);
-                            details.source_check_in = row.Cells["Column23"].Value?.ToString();
-                            details.ssr = new List<string>();
-                            if (row.Cells["Column24"].Value != null)
-                            {
-
-                                string[] values = row.Cells["Column24"].Value?.ToString().Split(',').Select(value => value.Trim()).ToArray();
-                                foreach (string value in values)
-                                {
-                                    details.ssr.Add(value);
-                                }
-                            }
-
-                            a = a.Concat(new PaxDetailsAdd[] { details }).ToArray();
-                        }
-
-                        Array.Resize(ref a, a.Length - 1);
+                    { 
+                        SmCheckIn submitCheckIn = new SmCheckIn();
                         client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
                         var requestData = new
                         {
                             trip_id = trip_id,
                             voyage_date = voyage_date,
-                            pax_details = a
+                            pax_details = submitCheckIn
                         };
 
                         string jsonRequestData = Newtonsoft.Json.JsonConvert.SerializeObject(requestData);
-
                         var content = new StringContent(jsonRequestData, Encoding.UTF8, "application/json");
                         HttpResponseMessage response = await client.PostAsync(apiUrl, content);
 
@@ -117,6 +84,7 @@ namespace WindowsFormsApp1
                             return error;
                         }
                     }
+                
                 }
                 catch (Exception ex)
                 {
@@ -124,7 +92,7 @@ namespace WindowsFormsApp1
                     return null;
                 }
             }
-
+        
 
         }
     }

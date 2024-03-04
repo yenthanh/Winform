@@ -16,10 +16,10 @@ using static System.Net.WebRequestMethods;
 
 namespace WindowsFormsApp1
 {
-    public partial class GetPaxInfoRecord : Form
+    public partial class GetPaxInfo : Form
     {
         private static string token;
-        public GetPaxInfoRecord(string Token)
+        public GetPaxInfo(string Token)
         {
             InitializeComponent();
             token = Token;
@@ -48,8 +48,8 @@ namespace WindowsFormsApp1
                             JObject json = JObject.Parse(jsonResponse);
                             txterr_msg.Text = json["err_msg"].ToString();
                             txterr_num.Text = json["err_num"].ToString();
-                            GetPaxList[] data = JsonConvert.DeserializeObject<GetPaxList[]>(json["data"].ToString());
-                            foreach (GetPaxList a in data)
+                            Model.GetPaxList[] data = JsonConvert.DeserializeObject<Model.GetPaxList[]>(json["data"].ToString());
+                            foreach (Model.GetPaxList a in data)
                             {
                                 dataGridView2.Rows.Add(a.pax_id, a.passport_number, a.ticket_number,
                                                        a.last_name, a.first_name, a.customer_booking_code
@@ -87,134 +87,6 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void txterr_num_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void trip_id_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txt2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txt1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txterr_msg_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void voyage_date_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox3_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txt4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txt3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txt8_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txt7_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txt5_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txt6_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label11_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txt9_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txt10_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label12_Click(object sender, EventArgs e)
-        {
-
-        }
+     
     }
 }

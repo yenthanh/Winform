@@ -1,5 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,44 +15,31 @@ using WindowsFormsApp1.Model;
 
 namespace WindowsFormsApp1
 {
-    public partial class CancelPaxRecord : Form
+    public partial class GetTerminalList : Form
     {
         private static string token;
-        public CancelPaxRecord(string Token)
+        public GetTerminalList(string Token)
         {
             InitializeComponent();
             token = Token;
         }
 
-        private async void button1_Click(object sender, EventArgs e)
+        private async void btnClickTelminalList_Click(object sender, EventArgs e)
         {
-            string apiUrl = $"{Helper.BaseURL}/{"booking/cancel-pax"}";
-            string result = await CancelPax(apiUrl, txttrip_id.Text, txtvoyage_date.Text, txtboarding_pass_number.Text, Convert.ToInt32(txtpax_id.Text));
+            string apiUrl = $"{Helper.BaseURLdcs}/{"information/get-terminal-list"}";
+            string result = await GetTerminalLi(apiUrl);
         }
-        private async Task<string> CancelPax(string apiUrl, string trip_id, string voyage_date, string boarding_pass_number, int pax_id)
+        private async Task<string> GetTerminalLi(string apiUrl)
         {
             using (HttpClient httpClient = new HttpClient())
             {
                 try
                 {
-                    var a = new object();
                     using (HttpClient client = new HttpClient())
                     {
-                        PaxDetails details = new PaxDetails();
+
                         client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
-                        var requestData = new
-                        {
-                            trip_id = trip_id,
-                            voyage_date = voyage_date,
-                            boarding_pass_number = boarding_pass_number,
-                            pax_id = pax_id,
-                            pax_details = details
-                        };
-
-                        string jsonRequestData = Newtonsoft.Json.JsonConvert.SerializeObject(requestData);
-
-                        var content = new StringContent(jsonRequestData, Encoding.UTF8, "application/json");
-                        HttpResponseMessage response = await client.PostAsync(apiUrl, content);
+                        HttpResponseMessage response = await client.GetAsync(apiUrl);
 
                         if (response.IsSuccessStatusCode)
                         {
@@ -60,8 +47,11 @@ namespace WindowsFormsApp1
                             JObject json = JObject.Parse(jsonResponse);
                             txterr_msg.Text = json["err_msg"].ToString();
                             txterr_num.Text = json["err_num"].ToString();
-
-                            ResponseArray[] datares = JsonConvert.DeserializeObject<ResponseArray[]>(json["data"].ToString());
+                            TerminalList[] data = JsonConvert.DeserializeObject<TerminalList[]>(json["data"].ToString());
+                            foreach (TerminalList a in data)
+                            {
+                                dataGridView2.Rows.Add(a.code, a.name, a.city_code,a.country_code);
+                            }
 
                             return await response.Content.ReadAsStringAsync();
                         }
@@ -78,7 +68,9 @@ namespace WindowsFormsApp1
                     MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return null;
                 }
+
             }
         }
+
     }
 }

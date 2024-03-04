@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1
 {
-    partial class CancelPaxRecord
+    partial class CancelPax
     {
         /// <summary>
         /// Required designer variable.

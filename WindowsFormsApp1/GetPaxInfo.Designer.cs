@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1
 {
-    partial class GetPaxInfoRecord
+    partial class GetPaxInfo
     {
         /// <summary>
         /// Required designer variable.
@@ -105,7 +105,7 @@
             this.txterr_msg.ReadOnly = true;
             this.txterr_msg.Size = new System.Drawing.Size(174, 22);
             this.txterr_msg.TabIndex = 3;
-            this.txterr_msg.TextChanged += new System.EventHandler(this.txterr_msg_TextChanged);
+          
             // 
             // txterr_num
             // 
@@ -114,7 +114,7 @@
             this.txterr_num.ReadOnly = true;
             this.txterr_num.Size = new System.Drawing.Size(174, 22);
             this.txterr_num.TabIndex = 2;
-            this.txterr_num.TextChanged += new System.EventHandler(this.txterr_num_TextChanged);
+           
             // 
             // label4
             // 
@@ -124,7 +124,7 @@
             this.label4.Size = new System.Drawing.Size(56, 16);
             this.label4.TabIndex = 1;
             this.label4.Text = "err_msg";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
+         
             // 
             // label3
             // 
@@ -134,7 +134,7 @@
             this.label3.Size = new System.Drawing.Size(55, 16);
             this.label3.TabIndex = 0;
             this.label3.Text = "err_num";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+           
             // 
             // trip_id
             // 
@@ -144,7 +144,7 @@
             this.trip_id.Size = new System.Drawing.Size(69, 16);
             this.trip_id.TabIndex = 31;
             this.trip_id.Text = "last_name";
-            this.trip_id.Click += new System.EventHandler(this.trip_id_Click);
+          
             // 
             // txt2
             // 
@@ -152,7 +152,7 @@
             this.txt2.Name = "txt2";
             this.txt2.Size = new System.Drawing.Size(174, 22);
             this.txt2.TabIndex = 34;
-            this.txt2.TextChanged += new System.EventHandler(this.txt2_TextChanged);
+          
             // 
             // txt1
             // 
@@ -160,7 +160,7 @@
             this.txt1.Name = "txt1";
             this.txt1.Size = new System.Drawing.Size(174, 22);
             this.txt1.TabIndex = 33;
-            this.txt1.TextChanged += new System.EventHandler(this.txt1_TextChanged);
+
             // 
             // button1
             // 
@@ -222,7 +222,7 @@
             this.dataGridView2.RowTemplate.Height = 24;
             this.dataGridView2.Size = new System.Drawing.Size(652, 175);
             this.dataGridView2.TabIndex = 4;
-            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
+           
             // 
             // pax_id
             // 
@@ -544,7 +544,7 @@
             this.voyage_date.Size = new System.Drawing.Size(87, 16);
             this.voyage_date.TabIndex = 32;
             this.voyage_date.Text = "voyage_date";
-            this.voyage_date.Click += new System.EventHandler(this.voyage_date_Click);
+            
             // 
             // groupBox3
             // 
@@ -559,7 +559,7 @@
             this.groupBox3.TabIndex = 30;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Get Pax List";
-            this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
+           
             // 
             // label1
             // 
@@ -569,7 +569,7 @@
             this.label1.Size = new System.Drawing.Size(43, 16);
             this.label1.TabIndex = 36;
             this.label1.Text = "trip_id";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+      
             // 
             // txt4
             // 
@@ -577,7 +577,7 @@
             this.txt4.Name = "txt4";
             this.txt4.Size = new System.Drawing.Size(174, 22);
             this.txt4.TabIndex = 39;
-            this.txt4.TextChanged += new System.EventHandler(this.txt4_TextChanged);
+     
             // 
             // txt3
             // 
@@ -585,7 +585,7 @@
             this.txt3.Name = "txt3";
             this.txt3.Size = new System.Drawing.Size(174, 22);
             this.txt3.TabIndex = 38;
-            this.txt3.TextChanged += new System.EventHandler(this.txt3_TextChanged);
+
             // 
             // label2
             // 
@@ -595,7 +595,7 @@
             this.label2.Size = new System.Drawing.Size(68, 16);
             this.label2.TabIndex = 37;
             this.label2.Text = "first_name";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+         
             // 
             // label7
             // 
@@ -605,7 +605,7 @@
             this.label7.Size = new System.Drawing.Size(156, 16);
             this.label7.TabIndex = 44;
             this.label7.Text = "customer_booking_code";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
+      
             // 
             // txt8
             // 
@@ -613,7 +613,7 @@
             this.txt8.Name = "txt8";
             this.txt8.Size = new System.Drawing.Size(174, 22);
             this.txt8.TabIndex = 47;
-            this.txt8.TextChanged += new System.EventHandler(this.txt8_TextChanged);
+     
             // 
             // txt7
             // 
@@ -621,7 +621,7 @@
             this.txt7.Name = "txt7";
             this.txt7.Size = new System.Drawing.Size(174, 22);
             this.txt7.TabIndex = 46;
-            this.txt7.TextChanged += new System.EventHandler(this.txt7_TextChanged);
+    
             // 
             // label8
             // 
@@ -631,7 +631,7 @@
             this.label8.Size = new System.Drawing.Size(72, 16);
             this.label8.TabIndex = 45;
             this.label8.Text = "destination";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
+      
             // 
             // label9
             // 
@@ -641,7 +641,7 @@
             this.label9.Size = new System.Drawing.Size(123, 16);
             this.label9.TabIndex = 41;
             this.label9.Text = "dcs_booking_code";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
+
             // 
             // txt5
             // 
@@ -649,7 +649,7 @@
             this.txt5.Name = "txt5";
             this.txt5.Size = new System.Drawing.Size(174, 22);
             this.txt5.TabIndex = 42;
-            this.txt5.TextChanged += new System.EventHandler(this.txt5_TextChanged);
+     
             // 
             // txt6
             // 
@@ -657,7 +657,7 @@
             this.txt6.Name = "txt6";
             this.txt6.Size = new System.Drawing.Size(174, 22);
             this.txt6.TabIndex = 43;
-            this.txt6.TextChanged += new System.EventHandler(this.txt6_TextChanged);
+       
             // 
             // label10
             // 
@@ -667,7 +667,7 @@
             this.label10.Size = new System.Drawing.Size(112, 16);
             this.label10.TabIndex = 40;
             this.label10.Text = "passport_number";
-            this.label10.Click += new System.EventHandler(this.label10_Click);
+ 
             // 
             // label11
             // 
@@ -677,7 +677,7 @@
             this.label11.Size = new System.Drawing.Size(97, 16);
             this.label11.TabIndex = 41;
             this.label11.Text = "include_cancel";
-            this.label11.Click += new System.EventHandler(this.label11_Click);
+    
             // 
             // txt9
             // 
@@ -685,7 +685,7 @@
             this.txt9.Name = "txt9";
             this.txt9.Size = new System.Drawing.Size(174, 22);
             this.txt9.TabIndex = 42;
-            this.txt9.TextChanged += new System.EventHandler(this.txt9_TextChanged);
+   
             // 
             // txt10
             // 
@@ -693,7 +693,7 @@
             this.txt10.Name = "txt10";
             this.txt10.Size = new System.Drawing.Size(174, 22);
             this.txt10.TabIndex = 43;
-            this.txt10.TextChanged += new System.EventHandler(this.txt10_TextChanged);
+    
             // 
             // label12
             // 
@@ -703,7 +703,7 @@
             this.label12.Size = new System.Drawing.Size(128, 16);
             this.label12.TabIndex = 40;
             this.label12.Text = "boarding_sequence";
-            this.label12.Click += new System.EventHandler(this.label12_Click);
+
             // 
             // GetPaxInfoRecord
             // 
