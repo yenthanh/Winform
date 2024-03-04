@@ -37,24 +37,6 @@
             this.txt1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.voyage_date = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txt4 = new System.Windows.Forms.TextBox();
-            this.txt3 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txt8 = new System.Windows.Forms.TextBox();
-            this.txt7 = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.txt5 = new System.Windows.Forms.TextBox();
-            this.txt6 = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.txt9 = new System.Windows.Forms.TextBox();
-            this.txt10 = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.pax_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.passport_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ticket_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -94,6 +76,24 @@
             this.ssr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.passport_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.boarding_pass_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.voyage_date = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txt4 = new System.Windows.Forms.TextBox();
+            this.txt3 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txt8 = new System.Windows.Forms.TextBox();
+            this.txt7 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txt5 = new System.Windows.Forms.TextBox();
+            this.txt6 = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txt9 = new System.Windows.Forms.TextBox();
+            this.txt10 = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
@@ -223,175 +223,6 @@
             this.dataGridView2.Size = new System.Drawing.Size(652, 175);
             this.dataGridView2.TabIndex = 4;
             this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
-            // 
-            // voyage_date
-            // 
-            this.voyage_date.AutoSize = true;
-            this.voyage_date.Location = new System.Drawing.Point(395, 12);
-            this.voyage_date.Name = "voyage_date";
-            this.voyage_date.Size = new System.Drawing.Size(87, 16);
-            this.voyage_date.TabIndex = 32;
-            this.voyage_date.Text = "voyage_date";
-            this.voyage_date.Click += new System.EventHandler(this.voyage_date_Click);
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.dataGridView2);
-            this.groupBox3.Controls.Add(this.txterr_msg);
-            this.groupBox3.Controls.Add(this.txterr_num);
-            this.groupBox3.Controls.Add(this.label4);
-            this.groupBox3.Controls.Add(this.label3);
-            this.groupBox3.Location = new System.Drawing.Point(16, 267);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(664, 252);
-            this.groupBox3.TabIndex = 30;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Get Pax List";
-            this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(19, 52);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 16);
-            this.label1.TabIndex = 36;
-            this.label1.Text = "trip_id";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // txt4
-            // 
-            this.txt4.Location = new System.Drawing.Point(495, 52);
-            this.txt4.Name = "txt4";
-            this.txt4.Size = new System.Drawing.Size(174, 22);
-            this.txt4.TabIndex = 39;
-            this.txt4.TextChanged += new System.EventHandler(this.txt4_TextChanged);
-            // 
-            // txt3
-            // 
-            this.txt3.Location = new System.Drawing.Point(133, 52);
-            this.txt3.Name = "txt3";
-            this.txt3.Size = new System.Drawing.Size(174, 22);
-            this.txt3.TabIndex = 38;
-            this.txt3.TextChanged += new System.EventHandler(this.txt3_TextChanged);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(414, 55);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(68, 16);
-            this.label2.TabIndex = 37;
-            this.label2.Text = "first_name";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(12, 136);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(156, 16);
-            this.label7.TabIndex = 44;
-            this.label7.Text = "customer_booking_code";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
-            // 
-            // txt8
-            // 
-            this.txt8.Location = new System.Drawing.Point(495, 136);
-            this.txt8.Name = "txt8";
-            this.txt8.Size = new System.Drawing.Size(174, 22);
-            this.txt8.TabIndex = 47;
-            this.txt8.TextChanged += new System.EventHandler(this.txt8_TextChanged);
-            // 
-            // txt7
-            // 
-            this.txt7.Location = new System.Drawing.Point(174, 133);
-            this.txt7.Name = "txt7";
-            this.txt7.Size = new System.Drawing.Size(174, 22);
-            this.txt7.TabIndex = 46;
-            this.txt7.TextChanged += new System.EventHandler(this.txt7_TextChanged);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(414, 136);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(72, 16);
-            this.label8.TabIndex = 45;
-            this.label8.Text = "destination";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(366, 96);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(123, 16);
-            this.label9.TabIndex = 41;
-            this.label9.Text = "dcs_booking_code";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
-            // 
-            // txt5
-            // 
-            this.txt5.Location = new System.Drawing.Point(133, 90);
-            this.txt5.Name = "txt5";
-            this.txt5.Size = new System.Drawing.Size(174, 22);
-            this.txt5.TabIndex = 42;
-            this.txt5.TextChanged += new System.EventHandler(this.txt5_TextChanged);
-            // 
-            // txt6
-            // 
-            this.txt6.Location = new System.Drawing.Point(495, 93);
-            this.txt6.Name = "txt6";
-            this.txt6.Size = new System.Drawing.Size(174, 22);
-            this.txt6.TabIndex = 43;
-            this.txt6.TextChanged += new System.EventHandler(this.txt6_TextChanged);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(12, 93);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(112, 16);
-            this.label10.TabIndex = 40;
-            this.label10.Text = "passport_number";
-            this.label10.Click += new System.EventHandler(this.label10_Click);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(377, 188);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(97, 16);
-            this.label11.TabIndex = 41;
-            this.label11.Text = "include_cancel";
-            this.label11.Click += new System.EventHandler(this.label11_Click);
-            // 
-            // txt9
-            // 
-            this.txt9.Location = new System.Drawing.Point(146, 185);
-            this.txt9.Name = "txt9";
-            this.txt9.Size = new System.Drawing.Size(174, 22);
-            this.txt9.TabIndex = 42;
-            this.txt9.TextChanged += new System.EventHandler(this.txt9_TextChanged);
-            // 
-            // txt10
-            // 
-            this.txt10.Location = new System.Drawing.Point(495, 185);
-            this.txt10.Name = "txt10";
-            this.txt10.Size = new System.Drawing.Size(174, 22);
-            this.txt10.TabIndex = 43;
-            this.txt10.TextChanged += new System.EventHandler(this.txt10_TextChanged);
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(12, 185);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(128, 16);
-            this.label12.TabIndex = 40;
-            this.label12.Text = "boarding_sequence";
-            this.label12.Click += new System.EventHandler(this.label12_Click);
             // 
             // pax_id
             // 
@@ -704,6 +535,175 @@
             this.boarding_pass_number.Name = "boarding_pass_number";
             this.boarding_pass_number.ReadOnly = true;
             this.boarding_pass_number.Width = 125;
+            // 
+            // voyage_date
+            // 
+            this.voyage_date.AutoSize = true;
+            this.voyage_date.Location = new System.Drawing.Point(395, 12);
+            this.voyage_date.Name = "voyage_date";
+            this.voyage_date.Size = new System.Drawing.Size(87, 16);
+            this.voyage_date.TabIndex = 32;
+            this.voyage_date.Text = "voyage_date";
+            this.voyage_date.Click += new System.EventHandler(this.voyage_date_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.dataGridView2);
+            this.groupBox3.Controls.Add(this.txterr_msg);
+            this.groupBox3.Controls.Add(this.txterr_num);
+            this.groupBox3.Controls.Add(this.label4);
+            this.groupBox3.Controls.Add(this.label3);
+            this.groupBox3.Location = new System.Drawing.Point(16, 267);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(664, 252);
+            this.groupBox3.TabIndex = 30;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Get Pax List";
+            this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(19, 52);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(43, 16);
+            this.label1.TabIndex = 36;
+            this.label1.Text = "trip_id";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // txt4
+            // 
+            this.txt4.Location = new System.Drawing.Point(495, 52);
+            this.txt4.Name = "txt4";
+            this.txt4.Size = new System.Drawing.Size(174, 22);
+            this.txt4.TabIndex = 39;
+            this.txt4.TextChanged += new System.EventHandler(this.txt4_TextChanged);
+            // 
+            // txt3
+            // 
+            this.txt3.Location = new System.Drawing.Point(133, 52);
+            this.txt3.Name = "txt3";
+            this.txt3.Size = new System.Drawing.Size(174, 22);
+            this.txt3.TabIndex = 38;
+            this.txt3.TextChanged += new System.EventHandler(this.txt3_TextChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(414, 55);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(68, 16);
+            this.label2.TabIndex = 37;
+            this.label2.Text = "first_name";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(12, 136);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(156, 16);
+            this.label7.TabIndex = 44;
+            this.label7.Text = "customer_booking_code";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
+            // 
+            // txt8
+            // 
+            this.txt8.Location = new System.Drawing.Point(495, 136);
+            this.txt8.Name = "txt8";
+            this.txt8.Size = new System.Drawing.Size(174, 22);
+            this.txt8.TabIndex = 47;
+            this.txt8.TextChanged += new System.EventHandler(this.txt8_TextChanged);
+            // 
+            // txt7
+            // 
+            this.txt7.Location = new System.Drawing.Point(174, 133);
+            this.txt7.Name = "txt7";
+            this.txt7.Size = new System.Drawing.Size(174, 22);
+            this.txt7.TabIndex = 46;
+            this.txt7.TextChanged += new System.EventHandler(this.txt7_TextChanged);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(414, 136);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(72, 16);
+            this.label8.TabIndex = 45;
+            this.label8.Text = "destination";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(366, 96);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(123, 16);
+            this.label9.TabIndex = 41;
+            this.label9.Text = "dcs_booking_code";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
+            // 
+            // txt5
+            // 
+            this.txt5.Location = new System.Drawing.Point(133, 90);
+            this.txt5.Name = "txt5";
+            this.txt5.Size = new System.Drawing.Size(174, 22);
+            this.txt5.TabIndex = 42;
+            this.txt5.TextChanged += new System.EventHandler(this.txt5_TextChanged);
+            // 
+            // txt6
+            // 
+            this.txt6.Location = new System.Drawing.Point(495, 93);
+            this.txt6.Name = "txt6";
+            this.txt6.Size = new System.Drawing.Size(174, 22);
+            this.txt6.TabIndex = 43;
+            this.txt6.TextChanged += new System.EventHandler(this.txt6_TextChanged);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(12, 93);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(112, 16);
+            this.label10.TabIndex = 40;
+            this.label10.Text = "passport_number";
+            this.label10.Click += new System.EventHandler(this.label10_Click);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(377, 188);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(97, 16);
+            this.label11.TabIndex = 41;
+            this.label11.Text = "include_cancel";
+            this.label11.Click += new System.EventHandler(this.label11_Click);
+            // 
+            // txt9
+            // 
+            this.txt9.Location = new System.Drawing.Point(146, 185);
+            this.txt9.Name = "txt9";
+            this.txt9.Size = new System.Drawing.Size(174, 22);
+            this.txt9.TabIndex = 42;
+            this.txt9.TextChanged += new System.EventHandler(this.txt9_TextChanged);
+            // 
+            // txt10
+            // 
+            this.txt10.Location = new System.Drawing.Point(495, 185);
+            this.txt10.Name = "txt10";
+            this.txt10.Size = new System.Drawing.Size(174, 22);
+            this.txt10.TabIndex = 43;
+            this.txt10.TextChanged += new System.EventHandler(this.txt10_TextChanged);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(12, 185);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(128, 16);
+            this.label12.TabIndex = 40;
+            this.label12.Text = "boarding_sequence";
+            this.label12.Click += new System.EventHandler(this.label12_Click);
             // 
             // GetPaxInfoRecord
             // 
