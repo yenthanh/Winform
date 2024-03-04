@@ -1,5 +1,5 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,26 +8,24 @@ using System.Drawing;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
-using System.Text.Json.Nodes;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.API_Helper;
 using WindowsFormsApp1.Model;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace WindowsFormsApp1
 {
-    public partial class AddPaxRecord : Form
+
+    public partial class SubmitCheckIn : Form
     {
         private static string token;
-        public AddPaxRecord(string Token)
+        public SubmitCheckIn(string Token)
         {
             InitializeComponent();
             token = Token;
         }
 
-        private async void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             string apiUrl = $"{Helper.BaseURL}/{"booking/add-pax-record"}";
 
@@ -41,12 +39,12 @@ namespace WindowsFormsApp1
                 {
                     using (HttpClient client = new HttpClient())
                     {
-                        var a = new PaxDetailsAdd[] { };
+                        var a = new SubmitCheckIn[] { };
                         var data = new ResponseArray[] { };
 
                         foreach (DataGridViewRow row in dataGridView1.Rows)
                         {
-                            PaxDetailsAdd details = new PaxDetailsAdd();
+                            SubmitCheckIn details = new SubmitCheckIn();
                             details.passport_no = row.Cells["Column1"].Value?.ToString();
                             details.passport_type = row.Cells["Column2"].Value?.ToString();
                             details.last_name = row.Cells["Column3"].Value?.ToString();
@@ -71,7 +69,8 @@ namespace WindowsFormsApp1
                             details.check_in = Convert.ToInt32(row.Cells["Column22"].Value);
                             details.source_check_in = row.Cells["Column23"].Value?.ToString();
                             details.ssr = new List<string>();
-                            if (row.Cells["Column24"].Value != null) {
+                            if (row.Cells["Column24"].Value != null)
+                            {
 
                                 string[] values = row.Cells["Column24"].Value?.ToString().Split(',').Select(value => value.Trim()).ToArray();
                                 foreach (string value in values)
@@ -85,7 +84,7 @@ namespace WindowsFormsApp1
 
                         Array.Resize(ref a, a.Length - 1);
                         client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
-                        var requestData = new 
+                        var requestData = new
                         {
                             trip_id = trip_id,
                             voyage_date = voyage_date,
@@ -125,70 +124,7 @@ namespace WindowsFormsApp1
                     return null;
                 }
             }
-            }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox3_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void txterr_msg_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txterr_num_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
 
         }
     }

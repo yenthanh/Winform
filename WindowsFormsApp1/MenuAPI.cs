@@ -49,5 +49,17 @@ namespace WindowsFormsApp1
             GetTerminalListRecord getTerminalList = new GetTerminalListRecord(Token);
             getTerminalList.Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            GetTripInfoRecord getTripInfoRecord = new GetTripInfoRecord(Token);
+            getTripInfoRecord.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            GetTripList getTripList = new GetTripList(Token);
+            getTripList.Show();
+        }
     }
 }
