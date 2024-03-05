@@ -148,6 +148,7 @@
     <Compile Include="MenuAPI.Designer.cs">
       <DependentUpon>MenuAPI.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\ResponseModel.cs" />
     <Compile Include="Model\GetPaxList.cs" />
     <Compile Include="Model\PaxDetails.cs" />
     <Compile Include="Model\ResponseArray.cs" />
