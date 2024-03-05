@@ -12,26 +12,24 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.API_Helper;
 using WindowsFormsApp1.Model;
-using System.Net;
-using System.Web.UI.WebControls;
 
 namespace WindowsFormsApp1
 {
-    public partial class GetVesselCodeRecord : Form
+    public partial class GetPaxList : Form
     {
         private static string token;
-        public GetVesselCodeRecord(string Token)
+        public GetPaxList(string Token)
         {
             InitializeComponent();
             token = Token;
         }
 
-        private async void btnClickGetVesselCode_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
-            string apiUrl = $"{Helper.BaseURL}/{"information/get-vessel-code"}";
-            string result = await GetVesselCode(apiUrl);
+            string apiUrl = $"{Helper.BaseURLdcs}/{"information/get-pax-list?terminal=" + txt1.Text + "&voyage_date=" + txt2.Text + "&include_cancel=" + txt3.Text + ""}";
+            string result = await GetTripLi(apiUrl);
         }
-        private async Task<string> GetVesselCode(string apiUrl)
+        private async Task<string> GetTripLi(string apiUrl)
         {
             using (HttpClient httpClient = new HttpClient())
             {
@@ -49,28 +47,24 @@ namespace WindowsFormsApp1
                             JObject json = JObject.Parse(jsonResponse);
                             txterr_msg.Text = json["err_msg"].ToString();
                             txterr_num.Text = json["err_num"].ToString();
-                            VesselPaxCode[] data = JsonConvert.DeserializeObject<VesselPaxCode[]>(json["data"].ToString());
-                            foreach (VesselPaxCode a in data)
+                            Model.GetPaxList[] data = JsonConvert.DeserializeObject<Model.GetPaxList[]>(json["data"].ToString());
+                            foreach (Model.GetPaxList a in data)
                             {
-                                dataGridView2.Rows.Add(a.vessel_id, a.reg_country, a.vessel_name,
-                                                        a.vessel_owner, a.insurance_company, a.insurance_policy_no,
-                                                        a.vessel_type,
-                                                        a.insurance_expiry_date,
-                                                        a.eids_short_name,
-                                                        a.vessel_call_sign_type,
-                                                        a.grt,
-                                                        a.vessel_length,
-                                                        a.vessel_width,
-                                                        a.insurance_reminder_date,
-                                                        a.date_created,
-                                                        a.create_by,
-                                                        a.date_updated,
-                                                        a.update_by,
-                                                        a.remark,
-                                                        a.crew_cap,
-                                                        a.pax_cap,
-                                                        a.total_cap,
-                                                        a.status);
+                                dataGridView2.Rows.Add(a.pax_id, a.passport_number, a.ticket_number,
+                                                       a.last_name, a.first_name, a.customer_booking_code
+                                                       , a.dcs_booking_code, a.cabin, a.passport_type
+                                                       , a.boarding_sequence, a.boarding_pass_number, a.gender
+                                                       , a.pax_type, a.dob, a.nationality
+                                                       , a.membership_no, a.travel_document_issuing_country, a.travel_document_expiry_date
+                                                       , a.country_residence, a.bag_allowance, a.ssr, a.tag_number
+                                                       , a.baggage_type, a.checkin, a.pre_imm
+                                                       , a.boarding, a.pontoon, a.destination
+                                                       , a.security_program_flag, a.group_travel_flag, a.immigration
+                                                       , a.source_check_in, a.last_min_pax, a.ntl_flag
+                                                       , a.transfer_from, a.remarks, a.cancelled
+                                                       , a.date_created, a.create_by, a.date_updated
+                                                       , a.updated_by);
+
                             }
 
                             return await response.Content.ReadAsStringAsync();
@@ -91,5 +85,7 @@ namespace WindowsFormsApp1
 
             }
         }
+
+       
     }
 }

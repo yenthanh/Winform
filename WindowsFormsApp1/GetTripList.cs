@@ -15,10 +15,10 @@ using WindowsFormsApp1.Model;
 
 namespace WindowsFormsApp1
 {
-    public partial class GetTripInfo : Form
+    public partial class GetTripList : Form
     {
         private static string token;
-        public GetTripInfo(string Token)
+        public GetTripList(string Token)
         {
             InitializeComponent();
             token = Token;
@@ -26,10 +26,10 @@ namespace WindowsFormsApp1
 
         private async void button1_Click(object sender, EventArgs e)
         {
-            string apiUrl = $"{Helper.BaseURLdcs}/{"information/get-trip-info?trip_id=" + txt1.Text + "&voyage_date=" + txt2.Text + ""}";
-            string result = await GetTripIn(apiUrl);
+            string apiUrl = $"{Helper.BaseURLdcs}/{"information/get-trip-list?terminal=" + txt1.Text + "&voyage_date=" + txt2.Text + ""}";
+            string result = await GetTripLi(apiUrl);
         }
-        private async Task<string> GetTripIn(string apiUrl)
+        private async Task<string> GetTripLi(string apiUrl)
         {
             using (HttpClient httpClient = new HttpClient())
             {
@@ -47,19 +47,19 @@ namespace WindowsFormsApp1
                             JObject json = JObject.Parse(jsonResponse);
                             txterr_msg.Text = json["err_msg"].ToString();
                             txterr_num.Text = json["err_num"].ToString();
-                            TripInfo[] data = JsonConvert.DeserializeObject<TripInfo[]>(json["data"].ToString());
-                            foreach (TripInfo a in data)
+                            TripList[] data = JsonConvert.DeserializeObject<TripList[]>(json["data"].ToString());
+                            foreach (TripList a in data)
                             {
-                                dataGridView2.Rows.Add(a.trip_id, a.origin, a.destination,
+                                dataGridView2.Rows.Add(a.trip_code, a.origin, a.destination,
                                                        a.gate_id, a.departure_status, a.arrival_status
                                                        , a.checkin_status, a.pre_imm_status, a.boarding_status
                                                        , a.boarding_time, a.boarding_close_time, a.pre_imm_time
                                                        , a.pontoon_status, a.trip_date, a.stb
                                                        , a.stu, a.atb, a.atu
-                                                       , a.etb, a.etu, a.vessel_id
-                                                       , a.vessel_name, a.checked_in, a.total_checked_in
+                                                       , a.etb, a.etu, a.checked_in, a.total_checked_in
                                                        , a.pre_imm, a.total_pre_imm, a.boarding
                                                        , a.total_boarding, a.pontoon, a.total_pontoon);
+
                             }
 
                             return await response.Content.ReadAsStringAsync();
@@ -79,6 +79,8 @@ namespace WindowsFormsApp1
                 }
 
             }
+
         }
     }
 }
+

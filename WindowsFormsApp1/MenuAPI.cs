@@ -34,26 +34,56 @@ namespace WindowsFormsApp1
 
         private void btncancelpax_Click(object sender, EventArgs e)
         {
-            CancelPaxRecord cancelpax = new CancelPaxRecord(Token);
+            CancelPax cancelpax = new CancelPax(Token);
             cancelpax.Show();
         }
 
         private void btngetvessel_Click(object sender, EventArgs e)
         {
-            GetVesselCodeRecord getVesselCode = new GetVesselCodeRecord(Token);
+            GetVesselCode getVesselCode = new GetVesselCode(Token);
             getVesselCode.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            GetTerminalListRecord getTerminalList = new GetTerminalListRecord(Token);
+            GetTerminalList getTerminalList = new GetTerminalList(Token);
             getTerminalList.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            GetTripInfo getTripInfo = new GetTripInfo(Token);
-            getTripInfo.Show();
+            GetTripInfo getTripInfoRecord = new GetTripInfo(Token);
+            getTripInfoRecord.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            GetTripList getTripList = new GetTripList(Token);
+            getTripList.Show();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            SubmitCheckIn submitCheckIn = new SubmitCheckIn(Token);
+            submitCheckIn.Show();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            GetPaxDetail getPaxDetail = new GetPaxDetail(Token);
+            getPaxDetail.Show();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            GetPaxList getPaxList = new GetPaxList(Token);  
+            getPaxList.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            GetPaxInfo getPaxInfo = new GetPaxInfo(Token);
+            getPaxInfo.Show();
         }
     }
 }

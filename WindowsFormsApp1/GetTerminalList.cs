@@ -1,5 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,21 +15,21 @@ using WindowsFormsApp1.Model;
 
 namespace WindowsFormsApp1
 {
-    public partial class GetTripInfo : Form
+    public partial class GetTerminalList : Form
     {
         private static string token;
-        public GetTripInfo(string Token)
+        public GetTerminalList(string Token)
         {
             InitializeComponent();
             token = Token;
         }
 
-        private async void button1_Click(object sender, EventArgs e)
+        private async void btnClickTelminalList_Click(object sender, EventArgs e)
         {
-            string apiUrl = $"{Helper.BaseURLdcs}/{"information/get-trip-info?trip_id=" + txt1.Text + "&voyage_date=" + txt2.Text + ""}";
-            string result = await GetTripIn(apiUrl);
+            string apiUrl = $"{Helper.BaseURLdcs}/{"information/get-terminal-list"}";
+            string result = await Get(apiUrl);
         }
-        private async Task<string> GetTripIn(string apiUrl)
+        private async Task<string> Get(string apiUrl)
         {
             using (HttpClient httpClient = new HttpClient())
             {
@@ -47,19 +47,10 @@ namespace WindowsFormsApp1
                             JObject json = JObject.Parse(jsonResponse);
                             txterr_msg.Text = json["err_msg"].ToString();
                             txterr_num.Text = json["err_num"].ToString();
-                            TripInfo[] data = JsonConvert.DeserializeObject<TripInfo[]>(json["data"].ToString());
-                            foreach (TripInfo a in data)
+                            TerminalList[] data = JsonConvert.DeserializeObject<TerminalList[]>(json["data"].ToString());
+                            foreach (TerminalList a in data)
                             {
-                                dataGridView2.Rows.Add(a.trip_id, a.origin, a.destination,
-                                                       a.gate_id, a.departure_status, a.arrival_status
-                                                       , a.checkin_status, a.pre_imm_status, a.boarding_status
-                                                       , a.boarding_time, a.boarding_close_time, a.pre_imm_time
-                                                       , a.pontoon_status, a.trip_date, a.stb
-                                                       , a.stu, a.atb, a.atu
-                                                       , a.etb, a.etu, a.vessel_id
-                                                       , a.vessel_name, a.checked_in, a.total_checked_in
-                                                       , a.pre_imm, a.total_pre_imm, a.boarding
-                                                       , a.total_boarding, a.pontoon, a.total_pontoon);
+                                dataGridView2.Rows.Add(a.code, a.name, a.city_code,a.country_code);
                             }
 
                             return await response.Content.ReadAsStringAsync();
@@ -80,5 +71,6 @@ namespace WindowsFormsApp1
 
             }
         }
+
     }
 }

@@ -8,8 +8,8 @@ namespace WindowsFormsApp1.Model
 {
     public class TripInfo
     {
-        public string trip_id {  get; set; }
-        public string origin {  get; set; }
+        public string trip_id { get; set; }
+        public string origin { get; set; }
         public string destination { get; set; }
         public string gate_id { get; set; }
         public string departure_status { get; set; }
@@ -39,5 +39,10 @@ namespace WindowsFormsApp1.Model
         public int total_boarding { get; set; }
         public int pontoon { get; set; }
         public int total_pontoon { get; set; }
+    }
+
+    public class TripList : TripInfo
+    {
+        public string trip_code { get; set; }
     }
 }

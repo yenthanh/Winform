@@ -15,10 +15,11 @@ using WindowsFormsApp1.Model;
 
 namespace WindowsFormsApp1
 {
-    public partial class CancelPaxRecord : Form
+
+    public partial class SubmitCheckIn : Form
     {
         private static string token;
-        public CancelPaxRecord(string Token)
+        public SubmitCheckIn(string Token)
         {
             InitializeComponent();
             token = Token;
@@ -26,31 +27,39 @@ namespace WindowsFormsApp1
 
         private async void button1_Click(object sender, EventArgs e)
         {
-            string apiUrl = $"{Helper.BaseURL}/{"booking/cancel-pax"}";
-            string result = await CancelPax(apiUrl, txttrip_id.Text, txtvoyage_date.Text, txtboarding_pass_number.Text, Convert.ToInt32(txtpax_id.Text));
+            string apiUrl = $"{Helper.BaseURLdcs}/{"check-in/submit-check-in"}";
+            string[] paxDetailsArray = txt3.Text.Split(new char[] { ',', ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            List<int> paxDetailsList = new List<int>();
+
+            foreach (string value in paxDetailsArray)
+            {
+                if (int.TryParse(value, out int intValue))
+                {
+                    paxDetailsList.Add(intValue);
+                }
+            }
+
+            await SubmitCheckInn(apiUrl, txt1.Text, txt2.Text, paxDetailsList);
         }
-        private async Task<string> CancelPax(string apiUrl, string trip_id, string voyage_date, string boarding_pass_number, int pax_id)
+        private async Task<string> SubmitCheckInn(string apiUrl, string trip_id, string voyage_date, List<int> pax_details)
         {
             using (HttpClient httpClient = new HttpClient())
             {
                 try
                 {
-                    var a = new object();
+                    var a = new object[] { };
                     using (HttpClient client = new HttpClient())
-                    {
-                        PaxDetails details = new PaxDetails();
+                    { 
+                        SmCheckIn submitCheckIn = new SmCheckIn();
                         client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
                         var requestData = new
                         {
                             trip_id = trip_id,
                             voyage_date = voyage_date,
-                            boarding_pass_number = boarding_pass_number,
-                            pax_id = pax_id,
-                            pax_details = details
+                            pax_details = submitCheckIn
                         };
 
                         string jsonRequestData = Newtonsoft.Json.JsonConvert.SerializeObject(requestData);
-
                         var content = new StringContent(jsonRequestData, Encoding.UTF8, "application/json");
                         HttpResponseMessage response = await client.PostAsync(apiUrl, content);
 
@@ -61,8 +70,11 @@ namespace WindowsFormsApp1
                             txterr_msg.Text = json["err_msg"].ToString();
                             txterr_num.Text = json["err_num"].ToString();
 
-                            ResponseArray[] datares = JsonConvert.DeserializeObject<ResponseArray[]>(json["data"].ToString());
-
+                            ResponseArrayFull[] datares = JsonConvert.DeserializeObject<ResponseArrayFull[]>(json["data"].ToString());
+                            foreach (var dt in datares)
+                            {
+                                dataGridView2.Rows.Add(dt.out_num, dt.out_str, dt.boarding_pass_number, dt.pax_id);
+                            }
                             return await response.Content.ReadAsStringAsync();
                         }
                         else
@@ -72,6 +84,7 @@ namespace WindowsFormsApp1
                             return error;
                         }
                     }
+                
                 }
                 catch (Exception ex)
                 {
@@ -79,6 +92,8 @@ namespace WindowsFormsApp1
                     return null;
                 }
             }
+        
+
         }
     }
 }

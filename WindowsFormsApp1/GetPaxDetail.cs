@@ -15,10 +15,10 @@ using WindowsFormsApp1.Model;
 
 namespace WindowsFormsApp1
 {
-    public partial class GetTripInfo : Form
+    public partial class GetPaxDetail : Form
     {
         private static string token;
-        public GetTripInfo(string Token)
+        public GetPaxDetail(string Token)
         {
             InitializeComponent();
             token = Token;
@@ -26,10 +26,10 @@ namespace WindowsFormsApp1
 
         private async void button1_Click(object sender, EventArgs e)
         {
-            string apiUrl = $"{Helper.BaseURLdcs}/{"information/get-trip-info?trip_id=" + txt1.Text + "&voyage_date=" + txt2.Text + ""}";
-            string result = await GetTripIn(apiUrl);
+            string apiUrl = $"{Helper.BaseURLdcs}/{"information/get-pax-detail?trip_id=" + txt1.Text + "&voyage_date=" + txt2.Text + "&boarding_pass_number=" + txt3.Text + "&pax_id=" + txt4.Text + "&include_cancel=" + txt5.Text + ""}";
+            string result = await GetTripLi(apiUrl);
         }
-        private async Task<string> GetTripIn(string apiUrl)
+        private async Task<string> GetTripLi(string apiUrl)
         {
             using (HttpClient httpClient = new HttpClient())
             {
@@ -47,19 +47,24 @@ namespace WindowsFormsApp1
                             JObject json = JObject.Parse(jsonResponse);
                             txterr_msg.Text = json["err_msg"].ToString();
                             txterr_num.Text = json["err_num"].ToString();
-                            TripInfo[] data = JsonConvert.DeserializeObject<TripInfo[]>(json["data"].ToString());
-                            foreach (TripInfo a in data)
+                            Model.GetPaxList[] data = JsonConvert.DeserializeObject<Model.GetPaxList[]>(json["data"].ToString());
+                            foreach (Model.GetPaxList a in data)
                             {
-                                dataGridView2.Rows.Add(a.trip_id, a.origin, a.destination,
-                                                       a.gate_id, a.departure_status, a.arrival_status
-                                                       , a.checkin_status, a.pre_imm_status, a.boarding_status
-                                                       , a.boarding_time, a.boarding_close_time, a.pre_imm_time
-                                                       , a.pontoon_status, a.trip_date, a.stb
-                                                       , a.stu, a.atb, a.atu
-                                                       , a.etb, a.etu, a.vessel_id
-                                                       , a.vessel_name, a.checked_in, a.total_checked_in
-                                                       , a.pre_imm, a.total_pre_imm, a.boarding
-                                                       , a.total_boarding, a.pontoon, a.total_pontoon);
+                                dataGridView2.Rows.Add(a.pax_id, a.passport_number, a.ticket_number,
+                                                       a.last_name, a.first_name, a.customer_booking_code
+                                                       , a.dcs_booking_code, a.cabin, a.passport_type
+                                                       , a.boarding_sequence, a.boarding_pass_number, a.gender
+                                                       , a.pax_type, a.dob, a.nationality
+                                                       , a.membership_no, a.travel_document_issuing_country, a.travel_document_expiry_date
+                                                       , a.country_residence, a.bag_allowance, a.ssr, a.tag_number
+                                                       , a.baggage_type, a.checkin, a.pre_imm
+                                                       , a.boarding, a.pontoon, a.destination
+                                                       , a.security_program_flag, a.group_travel_flag, a.immigration
+                                                       , a.source_check_in, a.last_min_pax, a.ntl_flag
+                                                       , a.transfer_from, a.remarks, a.cancelled
+                                                       , a.date_created, a.create_by, a.date_updated
+                                                       , a.updated_by);
+
                             }
 
                             return await response.Content.ReadAsStringAsync();
@@ -80,5 +85,6 @@ namespace WindowsFormsApp1
 
             }
         }
+
     }
 }
