@@ -139,7 +139,7 @@ namespace SPOSAPIDemo.API_Helper
             }
         }
 
-        public static async Task<GetPaxDetailResponseModel> GetPaxDetail(string token, string trip_id, string voyage_date, string boarding_pass_number, string pax_id, string include_cancel)
+        public static async Task<GetPaxResponseModel> GetPaxDetail(string token, string trip_id, string voyage_date, string boarding_pass_number, string pax_id, string include_cancel)
         {
             string apiUrl = $"{Helper.BaseURLdcs}/{"information/get-pax-detail?trip_id=" + trip_id + "&voyage_date=" + voyage_date + "&boarding_pass_number=" + boarding_pass_number + "&pax_id=" + pax_id + "&include_cancel=" + include_cancel + ""}";
 
@@ -156,7 +156,7 @@ namespace SPOSAPIDemo.API_Helper
                         string jsonResponse = await response.Content.ReadAsStringAsync();
                         JObject json = JObject.Parse(jsonResponse);
                         Model.GetPaxList[] data = JsonConvert.DeserializeObject<Model.GetPaxList[]>(json["data"].ToString());
-                        return new GetPaxDetailResponseModel
+                        return new GetPaxResponseModel
                         {
                             data = data,
                             err_msg = json["err_msg"].ToString(),
@@ -166,7 +166,7 @@ namespace SPOSAPIDemo.API_Helper
                     else
                     {
                         string error = await response.Content.ReadAsStringAsync();
-                        return new GetPaxDetailResponseModel
+                        return new GetPaxResponseModel
                         {
                             error = error,
                         };
@@ -181,7 +181,7 @@ namespace SPOSAPIDemo.API_Helper
 
         }
 
-        public static async Task<GetPaxDetailResponseModel> GetPaxInfo(string token, string last_name, string voyage_date, string trip_id, string first_name, string passport_number, string dcs_booking_code, string customer_booking_code, string destination, string boarding_sequence, string include_cancel)
+        public static async Task<GetPaxResponseModel> GetPaxInfo(string token, string last_name, string voyage_date, string trip_id, string first_name, string passport_number, string dcs_booking_code, string customer_booking_code, string destination, string boarding_sequence, string include_cancel)
         {
             string apiUrl = $"{Helper.BaseURLdcs}/{"information/get-pax-info?last_name=" + last_name + "&voyage_date=" + voyage_date + "&trip_id=" + trip_id + "&first_name=" + first_name + "&passport_number=" + passport_number + "&dcs_booking_code=" + dcs_booking_code + "&customer_booking_code=" + customer_booking_code + "&destination=" + destination + "&boarding_sequence=" + boarding_sequence + "&include_cancel=" + include_cancel + ""}";
             try
@@ -197,7 +197,7 @@ namespace SPOSAPIDemo.API_Helper
                         string jsonResponse = await response.Content.ReadAsStringAsync();
                         JObject json = JObject.Parse(jsonResponse);
                         Model.GetPaxList[] data = JsonConvert.DeserializeObject<Model.GetPaxList[]>(json["data"].ToString());
-                        return new GetPaxDetailResponseModel
+                        return new GetPaxResponseModel
                         {
                             data = data,
                             err_msg = json["err_msg"].ToString(),
@@ -207,7 +207,47 @@ namespace SPOSAPIDemo.API_Helper
                     else
                     {
                         string error = await response.Content.ReadAsStringAsync();
-                        return new GetPaxDetailResponseModel
+                        return new GetPaxResponseModel
+                        {
+                            error = error,
+                        };
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+        }
+
+        public static async Task<GetPaxResponseModel> GetPaxList(string token, string terminal, string voyage_date, string include_cancel)
+        {
+            string apiUrl = $"{Helper.BaseURLdcs}/{"information/get-pax-list?terminal=" + terminal + "&voyage_date=" + voyage_date + "&include_cancel=" + include_cancel + ""}";
+
+            try
+            {
+                using (HttpClient client = new HttpClient())
+                {
+                    client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+                    HttpResponseMessage response = await client.GetAsync(apiUrl);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string jsonResponse = await response.Content.ReadAsStringAsync();
+                        JObject json = JObject.Parse(jsonResponse);
+                        Model.GetPaxList[] data = JsonConvert.DeserializeObject<Model.GetPaxList[]>(json["data"].ToString());
+                        return new GetPaxResponseModel
+                        {
+                            data = data,
+                            err_msg = json["err_msg"].ToString(),
+                            err_num = json["err_num"].ToString()
+                        };
+                    }
+                    else
+                    {
+                        string error = await response.Content.ReadAsStringAsync();
+                        return new GetPaxResponseModel
                         {
                             error = error,
                         };
@@ -221,6 +261,5 @@ namespace SPOSAPIDemo.API_Helper
             }
 
         }
-
     }
 }

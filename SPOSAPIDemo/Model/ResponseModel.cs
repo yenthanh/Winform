@@ -8,7 +8,7 @@
     {
         public ResponseArray[] data { get; set; }
     }
-    public class GetPaxDetailResponseModel : ResponseModel
+    public class GetPaxResponseModel : ResponseModel
     {
         public GetPaxList[] data { get; set; }
     }
