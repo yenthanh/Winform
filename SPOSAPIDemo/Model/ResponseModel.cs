@@ -4,6 +4,10 @@
     {
         public ResponseArrayFull[] data { get; set; }
     }
+    public class UpdatePaxRecordResponseModel : ResponseModel
+    {
+        public ResponseArray data { get; set; }
+    }
     public class CancelPaxRecordResponseModel : ResponseModel
     {
         public ResponseArray[] data { get; set; }

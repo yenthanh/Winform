@@ -519,5 +519,58 @@ namespace SPOSAPIDemo.API_Helper
                 };
             }
         }
+        public static async Task<UpdatePaxRecordResponseModel> UpdatePax(string token, PaxDetails details, string trip_id, string voyage_date, string boarding_pass_number, int pax_id)
+        {
+            string apiUrl = $"{Helper.BaseURL}/{"booking/update-pax-record"}";
+            try
+            {
+                var a = new object();
+                using (HttpClient client = new HttpClient())
+                {
+                    client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+                    var requestData = new
+                    {
+                        trip_id,
+                        voyage_date,
+                        boarding_pass_number,
+                        pax_id,
+                        pax_details = details
+                    };
+
+                    string jsonRequestData = JsonConvert.SerializeObject(requestData);
+
+                    var content = new StringContent(jsonRequestData, Encoding.UTF8, "application/json");
+                    HttpResponseMessage response = await client.PostAsync(apiUrl, content);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string jsonResponse = await response.Content.ReadAsStringAsync();
+                        JObject json = JObject.Parse(jsonResponse);
+                        ResponseArray data = JsonConvert.DeserializeObject<ResponseArray>(json["data"].ToString());
+                        return new UpdatePaxRecordResponseModel
+                        {
+                            data = data,
+                            err_msg = json["err_msg"].ToString(),
+                            err_num = json["err_num"].ToString()
+                        };
+                    }
+                    else
+                    {
+                        string error = await response.Content.ReadAsStringAsync();
+                        return new UpdatePaxRecordResponseModel
+                        {
+                            error = error
+                        };
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return new UpdatePaxRecordResponseModel
+                {
+                    error = $"An error occurred: {ex.Message}",
+                };
+            }
+        }
     }
 }
