@@ -189,5 +189,50 @@ namespace SPOSAPIDemo.API_Helper
 
         }
 
+        public static async Task<GetPaxDetailResponseModel> GetPaxInfo(string token, string last_name, string voyage_date, string trip_id, string first_name, string passport_number, string dcs_booking_code, string customer_booking_code, string destination, string boarding_sequence, string include_cancel)
+        {
+            string apiUrl = $"{Helper.BaseURLdcs}/{"information/get-pax-info?last_name=" + last_name + "&voyage_date=" + voyage_date + "&trip_id=" + trip_id + "&first_name=" + first_name + "&passport_number=" + passport_number + "&dcs_booking_code=" + dcs_booking_code + "&customer_booking_code=" + customer_booking_code + "&destination=" + destination + "&boarding_sequence=" + boarding_sequence + "&include_cancel=" + include_cancel + ""}";
+
+            using (HttpClient httpClient = new HttpClient())
+            {
+                try
+                {
+                    using (HttpClient client = new HttpClient())
+                    {
+
+                        client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+                        HttpResponseMessage response = await client.GetAsync(apiUrl);
+
+                        if (response.IsSuccessStatusCode)
+                        {
+                            string jsonResponse = await response.Content.ReadAsStringAsync();
+                            JObject json = JObject.Parse(jsonResponse);
+                            Model.GetPaxList[] data = JsonConvert.DeserializeObject<Model.GetPaxList[]>(json["data"].ToString());
+                            return new GetPaxDetailResponseModel
+                            {
+                                data = data,
+                                err_msg = json["err_msg"].ToString(),
+                                err_num = json["err_num"].ToString()
+                            };
+                        }
+                        else
+                        {
+                            string error = await response.Content.ReadAsStringAsync();
+                            return new GetPaxDetailResponseModel
+                            {
+                                error = error,
+                            };
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return null;
+                }
+
+            }
+        }
+
     }
 }
