@@ -80,8 +80,10 @@ namespace SPOSAPIDemo.API_Helper
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return null;
+                return new AddPaxRecordResponseModel
+                {
+                    error = $"An error occurred: {ex.Message}",
+                };
             }
         }
 
@@ -134,8 +136,10 @@ namespace SPOSAPIDemo.API_Helper
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return null;
+                return new CancelPaxRecordResponseModel
+                {
+                    error = $"An error occurred: {ex.Message}",
+                };
             }
         }
 
@@ -175,8 +179,10 @@ namespace SPOSAPIDemo.API_Helper
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return null;
+                return new GetPaxResponseModel
+                {
+                    error = $"An error occurred: {ex.Message}",
+                };
             }
 
         }
@@ -216,8 +222,10 @@ namespace SPOSAPIDemo.API_Helper
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return null;
+                return new GetPaxResponseModel
+                {
+                    error = $"An error occurred: {ex.Message}",
+                };
             }
         }
 
@@ -256,8 +264,10 @@ namespace SPOSAPIDemo.API_Helper
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return null;
+                return new GetPaxResponseModel
+                {
+                    error = $"An error occurred: {ex.Message}",
+                };
             }
 
         }
