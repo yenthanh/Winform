@@ -26,51 +26,18 @@ namespace SPOSAPIDemo
 
         private async void btnClickTelminalList_Click(object sender, EventArgs e)
         {
-            string apiUrl = $"{Helper.BaseURLdcs}/{"information/get-terminal-list"}";
-            string result = await Get(apiUrl);
-        }
-        private async Task<string> Get(string apiUrl)
-        {
-            using (HttpClient httpClient = new HttpClient())
+            var response = await Helper.GetTerminalList(token);
+            foreach (var a in response.data)
             {
-                try
-                {
-                    using (HttpClient client = new HttpClient())
-                    {
+                dataGridView2.Rows.Add(a.code, a.name, a.city_code, a.country_code);
+            }
+            txterr_msg.Text = response.err_msg;
+            txterr_num.Text = response.err_num;
 
-                        client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
-                        HttpResponseMessage response = await client.GetAsync(apiUrl);
-
-                        if (response.IsSuccessStatusCode)
-                        {
-                            string jsonResponse = await response.Content.ReadAsStringAsync();
-                            JObject json = JObject.Parse(jsonResponse);
-                            txterr_msg.Text = json["err_msg"].ToString();
-                            txterr_num.Text = json["err_num"].ToString();
-                            TerminalList[] data = JsonConvert.DeserializeObject<TerminalList[]>(json["data"].ToString());
-                            foreach (TerminalList a in data)
-                            {
-                                dataGridView2.Rows.Add(a.code, a.name, a.city_code,a.country_code);
-                            }
-
-                            return await response.Content.ReadAsStringAsync();
-                        }
-                        else
-                        {
-                            string error = await response.Content.ReadAsStringAsync();
-                            MessageBox.Show(error);
-                            return error;
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return null;
-                }
-
+            if (!string.IsNullOrEmpty(response.error))
+            {
+                MessageBox.Show(response.error);
             }
         }
-
     }
 }

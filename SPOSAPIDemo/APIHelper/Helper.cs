@@ -271,5 +271,49 @@ namespace SPOSAPIDemo.API_Helper
             }
 
         }
+
+
+        public static async Task<GetTerminalListResponseModel> GetTerminalList(string token)
+        {
+            string apiUrl = $"{Helper.BaseURLdcs}/{"information/get-terminal-list"}";
+            try
+            {
+                using (HttpClient client = new HttpClient())
+                {
+                    client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+                    HttpResponseMessage response = await client.GetAsync(apiUrl);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string jsonResponse = await response.Content.ReadAsStringAsync();
+                        JObject json = JObject.Parse(jsonResponse);
+                        TerminalList[] data = JsonConvert.DeserializeObject<TerminalList[]>(json["data"].ToString());
+                        return new GetTerminalListResponseModel
+                        {
+                            data = data,
+                            err_msg = json["err_msg"].ToString(),
+                            err_num = json["err_num"].ToString()
+                        };
+                    }
+                    else
+                    {
+                        string error = await response.Content.ReadAsStringAsync(); 
+                        return new GetTerminalListResponseModel
+                        {
+                            error = error
+                        };
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return new GetTerminalListResponseModel
+                {
+                    error = $"An error occurred: {ex.Message}",
+                };
+            }
+
+        }
+
     }
 }

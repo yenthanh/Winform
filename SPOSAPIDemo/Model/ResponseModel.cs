@@ -12,8 +12,12 @@
     {
         public GetPaxList[] data { get; set; }
     }
-    
+    public class GetTerminalListResponseModel : ResponseModel
+    {
+        public TerminalList[] data { get; set; }
+    }
 
+    
     public class ResponseModel
     {
         public string error { get; set; }
