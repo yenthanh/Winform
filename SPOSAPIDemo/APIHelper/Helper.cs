@@ -34,7 +34,7 @@ namespace SPOSAPIDemo.API_Helper
         {
             _baseURL = baseURL;
         }
-        public static async Task<ResponseModel> AddPax(string token, string trip_id, string voyage_date, PaxDetailsAdd[] pax_details)
+        public static async Task<AddPaxRecordResponseModel> AddPax(string token, string trip_id, string voyage_date, PaxDetailsAdd[] pax_details)
         {
             string apiUrl = $"{Helper.BaseURL}/{"booking/add-pax-record"}";
 
@@ -49,12 +49,12 @@ namespace SPOSAPIDemo.API_Helper
                         client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
                         var requestData = new
                         {
-                            trip_id = trip_id,
-                            voyage_date = voyage_date,
-                            pax_details = pax_details
+                            trip_id,
+                            voyage_date,
+                            pax_details
                         };
 
-                        string jsonRequestData = Newtonsoft.Json.JsonConvert.SerializeObject(requestData);
+                        string jsonRequestData = JsonConvert.SerializeObject(requestData);
 
                         var content = new StringContent(jsonRequestData, Encoding.UTF8, "application/json");
                         HttpResponseMessage response = await client.PostAsync(apiUrl, content);
@@ -64,7 +64,7 @@ namespace SPOSAPIDemo.API_Helper
                             string jsonResponse = await response.Content.ReadAsStringAsync();
                             JObject json = JObject.Parse(jsonResponse);
                             ResponseArrayFull[] datares = JsonConvert.DeserializeObject<ResponseArrayFull[]>(json["data"].ToString());
-                            return new ResponseModel
+                            return new AddPaxRecordResponseModel
                             {
                                 data = datares,
                                 err_msg = json["err_msg"].ToString(),
@@ -74,7 +74,7 @@ namespace SPOSAPIDemo.API_Helper
                         else
                         {
                             string error = await response.Content.ReadAsStringAsync();
-                            return new ResponseModel
+                            return new AddPaxRecordResponseModel
                             {
                                 error = error
                             };
@@ -88,5 +88,65 @@ namespace SPOSAPIDemo.API_Helper
                 }
             }
         }
+
+        public static async Task<CancelPaxRecordResponseModel> CancelPax(string token, string trip_id, string voyage_date, string boarding_pass_number, int pax_id)
+        {
+            string apiUrl = $"{Helper.BaseURL}/{"booking/cancel-pax"}";
+            using (HttpClient httpClient = new HttpClient())
+            {
+                try
+                {
+                    var a = new object();
+                    using (HttpClient client = new HttpClient())
+                    {
+                        PaxDetails details = new PaxDetails();
+                        client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+                        var requestData = new
+                        {
+                            trip_id,
+                            voyage_date,
+                            boarding_pass_number,
+                            pax_id,
+                            pax_details = details
+                        };
+
+                        string jsonRequestData = Newtonsoft.Json.JsonConvert.SerializeObject(requestData);
+
+                        var content = new StringContent(jsonRequestData, Encoding.UTF8, "application/json");
+                        HttpResponseMessage response = await client.PostAsync(apiUrl, content);
+
+                        if (response.IsSuccessStatusCode)
+                        {
+                            string jsonResponse = await response.Content.ReadAsStringAsync();
+                            JObject json = JObject.Parse(jsonResponse);
+
+                            ResponseArray[] datares = JsonConvert.DeserializeObject<ResponseArray[]>(json["data"].ToString());
+                            return new CancelPaxRecordResponseModel
+                            {
+                                data = datares,
+                                err_msg = json["err_msg"].ToString(),
+                                err_num = json["err_num"].ToString()
+                            };
+                        }
+                        else
+                        {
+                            string error = await response.Content.ReadAsStringAsync();
+                            return new CancelPaxRecordResponseModel
+                            {
+                                data = null,
+                                error = error
+                            };
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return null;
+                }
+            }
+        }
+
+
     }
 }
