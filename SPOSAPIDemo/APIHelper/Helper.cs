@@ -42,7 +42,6 @@ namespace SPOSAPIDemo.API_Helper
                 using (HttpClient client = new HttpClient())
                 {
                     var data = new ResponseArray[] { };
-                    Array.Resize(ref pax_details, pax_details.Length - 1);
                     client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
                     var requestData = new
                     {

@@ -60,16 +60,18 @@ namespace SPOSAPIDemo
                 pax_details = pax_details.Concat(new PaxDetailsAdd[] { details }).ToArray();
             }
             var response = await Helper.AddPax(token, textBox1.Text, textBox2.Text, pax_details);
-            foreach (var dt in response.data)
-            {
-                dataGridView2.Rows.Add(dt.out_num, dt.out_str, dt.boarding_pass_number, dt.pax_id);
-            }
-            txterr_msg.Text = response.err_msg;
-            txterr_num.Text = response.err_num;
-
             if (!string.IsNullOrEmpty(response.error))
             {
                 MessageBox.Show(response.error);
+            }
+            else
+            {
+                foreach (var dt in response.data)
+                {
+                    dataGridView2.Rows.Add(dt.out_num, dt.out_str, dt.boarding_pass_number, dt.pax_id);
+                }
+                txterr_msg.Text = response.err_msg;
+                txterr_num.Text = response.err_num;
             }
 
         }
