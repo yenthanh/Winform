@@ -436,5 +436,46 @@ namespace SPOSAPIDemo.API_Helper
             }
 
         }
+        public static async Task<LoginResponseModel> Login(string username, string password)
+        {
+            string apiUrl = $"{Helper.BaseURL}/{"auth/login"}";
+            using (HttpClient httpClient = new HttpClient())
+            {
+                try
+                {
+                    MultipartFormDataContent formData = new MultipartFormDataContent();
+
+                    formData.Add(new StringContent(username), "username");
+
+                    formData.Add(new StringContent(password), "password");
+
+                    HttpResponseMessage response = await httpClient.PostAsync(apiUrl, formData);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string jsonResponse = await response.Content.ReadAsStringAsync();
+                        JObject json = JObject.Parse(jsonResponse);
+                        return new LoginResponseModel
+                        {
+                            data = json["data"]["token"].ToString()
+                        };
+                    }
+                    else
+                    {
+                        return new LoginResponseModel
+                        {
+                            error = $"Error: {response.StatusCode}"
+                        };
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return new LoginResponseModel
+                    {
+                        error = $"Exception: {ex.Message}"
+                    };
+                }
+            }
+        }
     }
 }
