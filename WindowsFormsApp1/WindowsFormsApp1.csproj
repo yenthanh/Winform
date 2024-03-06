@@ -81,7 +81,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="API_Helper\Helper.cs" />
+    <Compile Include="APIHelper\Helper.cs" />
     <Compile Include="CancelPax.cs">
       <SubType>Form</SubType>
     </Compile>
