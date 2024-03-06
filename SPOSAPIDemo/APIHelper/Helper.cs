@@ -86,7 +86,6 @@ namespace SPOSAPIDemo.API_Helper
                 };
             }
         }
-
         public static async Task<CancelPaxRecordResponseModel> CancelPax(string token, string trip_id, string voyage_date, string boarding_pass_number, int pax_id)
         {
             string apiUrl = $"{Helper.BaseURL}/{"booking/cancel-pax"}";
@@ -142,7 +141,6 @@ namespace SPOSAPIDemo.API_Helper
                 };
             }
         }
-
         public static async Task<GetPaxResponseModel> GetPaxDetail(string token, string trip_id, string voyage_date, string boarding_pass_number, string pax_id, string include_cancel)
         {
             string apiUrl = $"{Helper.BaseURLdcs}/{"information/get-pax-detail?trip_id=" + trip_id + "&voyage_date=" + voyage_date + "&boarding_pass_number=" + boarding_pass_number + "&pax_id=" + pax_id + "&include_cancel=" + include_cancel + ""}";
@@ -186,7 +184,6 @@ namespace SPOSAPIDemo.API_Helper
             }
 
         }
-
         public static async Task<GetPaxResponseModel> GetPaxInfo(string token, string last_name, string voyage_date, string trip_id, string first_name, string passport_number, string dcs_booking_code, string customer_booking_code, string destination, string boarding_sequence, string include_cancel)
         {
             string apiUrl = $"{Helper.BaseURLdcs}/{"information/get-pax-info?last_name=" + last_name + "&voyage_date=" + voyage_date + "&trip_id=" + trip_id + "&first_name=" + first_name + "&passport_number=" + passport_number + "&dcs_booking_code=" + dcs_booking_code + "&customer_booking_code=" + customer_booking_code + "&destination=" + destination + "&boarding_sequence=" + boarding_sequence + "&include_cancel=" + include_cancel + ""}";
@@ -228,7 +225,6 @@ namespace SPOSAPIDemo.API_Helper
                 };
             }
         }
-
         public static async Task<GetPaxResponseModel> GetPaxList(string token, string terminal, string voyage_date, string include_cancel)
         {
             string apiUrl = $"{Helper.BaseURLdcs}/{"information/get-pax-list?terminal=" + terminal + "&voyage_date=" + voyage_date + "&include_cancel=" + include_cancel + ""}";
@@ -271,7 +267,6 @@ namespace SPOSAPIDemo.API_Helper
             }
 
         }
-
         public static async Task<GetTerminalListResponseModel> GetTerminalList(string token)
         {
             string apiUrl = $"{Helper.BaseURLdcs}/{"information/get-terminal-list"}";
@@ -312,7 +307,6 @@ namespace SPOSAPIDemo.API_Helper
                 };
             }
         }
-
         public static async Task<TripInfoResponseModel> GetTripInfo(string token, string trip_id, string voyage_date)
         {
             string apiUrl = $"{Helper.BaseURLdcs}/{"information/get-trip-info?trip_id=" + trip_id + "&voyage_date=" + voyage_date + ""}";
@@ -352,7 +346,6 @@ namespace SPOSAPIDemo.API_Helper
                 };
             }
         }
-
         public static async Task<TripListResponseModel> GetTripList(string token, string terminal, string voyage_date)
         {
             string apiUrl = $"{Helper.BaseURLdcs}/{"information/get-trip-list?terminal=" + terminal + "&voyage_date=" + voyage_date + ""}";
@@ -394,7 +387,6 @@ namespace SPOSAPIDemo.API_Helper
             }
 
         }
-
         public static async Task<VesselPaxCodeResponseModel> GetVesselCode(string token)
         {
             string apiUrl = $"{Helper.BaseURL}/{"information/get-vessel-code"}";
@@ -475,6 +467,56 @@ namespace SPOSAPIDemo.API_Helper
                         error = $"Exception: {ex.Message}"
                     };
                 }
+            }
+        }
+        public static async Task<AddPaxRecordResponseModel> SubmitCheckIn(string token, string trip_id, string voyage_date, List<int> pax_details)
+        {
+            string apiUrl = $"{Helper.BaseURLdcs}/{"check-in/submit-check-in"}";
+            try
+            {
+                using (HttpClient client = new HttpClient())
+                {
+                    SmCheckIn submitCheckIn = new SmCheckIn();
+                    client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+                    var requestData = new
+                    {
+                        trip_id,
+                        voyage_date,
+                        pax_details = submitCheckIn
+                    };
+
+                    string jsonRequestData = JsonConvert.SerializeObject(requestData);
+                    var content = new StringContent(jsonRequestData, Encoding.UTF8, "application/json");
+                    HttpResponseMessage response = await client.PostAsync(apiUrl, content);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string jsonResponse = await response.Content.ReadAsStringAsync();
+                        JObject json = JObject.Parse(jsonResponse);
+                        ResponseArrayFull[] datares = JsonConvert.DeserializeObject<ResponseArrayFull[]>(json["data"].ToString());
+                        return new AddPaxRecordResponseModel
+                        {
+                            data = datares,
+                            err_msg = json["err_msg"].ToString(),
+                            err_num = json["err_num"].ToString()
+                        };
+                    }
+                    else
+                    {
+                        string error = await response.Content.ReadAsStringAsync();
+                        return new AddPaxRecordResponseModel
+                        {
+                            error = error,
+                        };
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return new AddPaxRecordResponseModel
+                {
+                    error = $"An error occurred: {ex.Message}",
+                };
             }
         }
     }
