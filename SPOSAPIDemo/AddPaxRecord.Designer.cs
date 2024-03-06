@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -70,11 +71,15 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.paxDetailsAddBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ssrBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.paxDetailsAddBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ssrBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -96,6 +101,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(223, 22);
             this.textBox2.TabIndex = 3;
+            this.textBox2.Text = "20241212";
             // 
             // textBox1
             // 
@@ -103,6 +109,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(223, 22);
             this.textBox1.TabIndex = 2;
+            this.textBox1.Text = "HFF124";
             // 
             // label2
             // 
@@ -166,6 +173,7 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(652, 133);
             this.dataGridView1.TabIndex = 5;
+            this.dataGridView1.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.dataGridView1_DefaultValuesNeeded);
             // 
             // Column1
             // 
@@ -441,6 +449,15 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // paxDetailsAddBindingSource
+            // 
+            this.paxDetailsAddBindingSource.DataSource = typeof(SPOSAPIDemo.Model.PaxDetailsAdd);
+            // 
+            // ssrBindingSource
+            // 
+            this.ssrBindingSource.DataMember = "ssr";
+            this.ssrBindingSource.DataSource = this.paxDetailsAddBindingSource;
+            // 
             // AddPaxRecord
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -459,6 +476,8 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.paxDetailsAddBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ssrBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -507,5 +526,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn out_str;
         private System.Windows.Forms.DataGridViewTextBoxColumn boarding_pass_number;
         private System.Windows.Forms.DataGridViewTextBoxColumn pax_id;
+        private System.Windows.Forms.BindingSource paxDetailsAddBindingSource;
+        private System.Windows.Forms.BindingSource ssrBindingSource;
     }
 }

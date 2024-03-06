@@ -5,6 +5,7 @@ using System.Linq;
 using System.Windows.Forms;
 using SPOSAPIDemo.API_Helper;
 using SPOSAPIDemo.Model;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace SPOSAPIDemo
 {
@@ -70,6 +71,59 @@ namespace SPOSAPIDemo
             {
                 MessageBox.Show(response.error);
             }
+
+        }
+
+        private void dataGridView1_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
+        {
+            // passport_type
+            e.Row.Cells["Column1"].Value = "ABC34501";
+            //details.passport_type
+            e.Row.Cells["Column2"].Value = "PA";
+            //details.last_name
+            e.Row.Cells["Column3"].Value = "Doe";
+            //details.first_name
+            e.Row.Cells["Column4"].Value = "John";
+            //details.gender
+            e.Row.Cells["Column5"].Value = "M";
+            //details.nationality
+            e.Row.Cells["Column6"].Value = "SGP";
+            //details.dob
+            e.Row.Cells["Column7"].Value = "19830219";
+            //details.country_of_birth
+            e.Row.Cells["Column8"].Value = "SGP";
+            //details.travel_doc_exp_date
+            e.Row.Cells["Column9"].Value = "20261104";
+            //details.country_of_issue
+            e.Row.Cells["Column10"].Value = "SGP";
+            //details.country_of_residence
+            e.Row.Cells["Column11"].Value = "SGP";
+            //details.destination
+            e.Row.Cells["Column12"].Value = "TMFT";
+            //details.ticket_no
+            e.Row.Cells["Column13"].Value = "10032176";
+            //details.remarks
+            e.Row.Cells["Column14"].Value = "remarks";
+            //details.customer_book_code
+            e.Row.Cells["Column15"].Value = "ANJOABC1";
+            //details.cabin
+            e.Row.Cells["Column16"].Value = "Economy";
+            //details.pax_type
+            e.Row.Cells["Column17"].Value = "A";
+            //details.bag_allowance
+            e.Row.Cells["Column18"].Value = 10;
+            //details.additional_bag_allowance
+            e.Row.Cells["Column19"].Value = 20;
+            //details.security_program_flag
+            e.Row.Cells["Column20"].Value = "A1";
+            //details.membership_no
+            e.Row.Cells["Column21"].Value = "DF162";
+            //details.check_in
+            e.Row.Cells["Column22"].Value = 1;
+            //details.source_check_in
+            e.Row.Cells["Column23"].Value = "FCI";
+            //details.ssr
+            e.Row.Cells["Column24"].Value = "VJML,BG30";
         }
     }
 }
