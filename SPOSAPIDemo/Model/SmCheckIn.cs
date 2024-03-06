@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WindowsFormsApp1.Model
+namespace SPOSAPIDemo.Model
 {
     
     public class SmCheckIn

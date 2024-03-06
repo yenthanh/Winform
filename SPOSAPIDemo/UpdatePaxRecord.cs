@@ -10,11 +10,11 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WindowsFormsApp1.API_Helper;
-using WindowsFormsApp1.Model;
+using SPOSAPIDemo.API_Helper;
+using SPOSAPIDemo.Model;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
-namespace WindowsFormsApp1
+namespace SPOSAPIDemo
 {
     public partial class UpdatePaxRecord : Form
     {

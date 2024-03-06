@@ -10,12 +10,12 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WindowsFormsApp1.API_Helper;
-using WindowsFormsApp1.Model;
+using SPOSAPIDemo.API_Helper;
+using SPOSAPIDemo.Model;
 using System.Net;
 using System.Web.UI.WebControls;
 
-namespace WindowsFormsApp1
+namespace SPOSAPIDemo
 {
     public partial class GetVesselCode : Form
     {

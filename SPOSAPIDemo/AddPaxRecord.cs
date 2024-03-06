@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
-using WindowsFormsApp1.API_Helper;
-using WindowsFormsApp1.Model;
+using SPOSAPIDemo.API_Helper;
+using SPOSAPIDemo.Model;
 
-namespace WindowsFormsApp1
+namespace SPOSAPIDemo
 {
     public partial class AddPaxRecord : Form
     {

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WindowsFormsApp1.Model;
+using SPOSAPIDemo.Model;
 
-namespace WindowsFormsApp1
+namespace SPOSAPIDemo
 {
     internal static class Program
     {

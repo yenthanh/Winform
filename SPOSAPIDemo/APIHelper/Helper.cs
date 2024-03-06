@@ -7,9 +7,9 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WindowsFormsApp1.Model;
+using SPOSAPIDemo.Model;
 
-namespace WindowsFormsApp1.API_Helper
+namespace SPOSAPIDemo.API_Helper
 {
     public class Helper
     {
