@@ -20,7 +20,10 @@
     {
         public TripInfo[] data { get; set; }
     }
-
+    public class TripListResponseModel : ResponseModel
+    {
+        public TripList[] data { get; set; }
+    }
     public class ResponseModel
     {
         public string error { get; set; }

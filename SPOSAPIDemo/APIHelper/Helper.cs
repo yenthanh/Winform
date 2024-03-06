@@ -353,5 +353,47 @@ namespace SPOSAPIDemo.API_Helper
                 };
             }
         }
+
+        public static async Task<TripListResponseModel> GetTripList(string token, string terminal, string voyage_date)
+        {
+            string apiUrl = $"{Helper.BaseURLdcs}/{"information/get-trip-list?terminal=" + terminal + "&voyage_date=" + voyage_date + ""}";
+            try
+            {
+                using (HttpClient client = new HttpClient())
+                {
+                    client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+                    HttpResponseMessage response = await client.GetAsync(apiUrl);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string jsonResponse = await response.Content.ReadAsStringAsync();
+                        JObject json = JObject.Parse(jsonResponse);
+                        TripList[] data = JsonConvert.DeserializeObject<TripList[]>(json["data"].ToString());
+                        return new TripListResponseModel
+                        {
+                            data = data,
+                            err_msg = json["err_msg"].ToString(),
+                            err_num = json["err_num"].ToString()
+                        };
+                    }
+                    else
+                    {
+                        string error = await response.Content.ReadAsStringAsync(); 
+                        return new TripListResponseModel
+                        {
+                            error = error,
+                        };
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return new TripListResponseModel
+                {
+                    error = $"An error occurred: {ex.Message}",
+                };
+            }
+
+        }
     }
 }
