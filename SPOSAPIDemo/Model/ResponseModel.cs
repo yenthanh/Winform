@@ -24,6 +24,11 @@
     {
         public TripList[] data { get; set; }
     }
+    public class VesselPaxCodeResponseModel : ResponseModel
+    {
+        public VesselPaxCode[] data { get; set; }
+    }
+    
     public class ResponseModel
     {
         public string error { get; set; }

@@ -272,7 +272,6 @@ namespace SPOSAPIDemo.API_Helper
 
         }
 
-
         public static async Task<GetTerminalListResponseModel> GetTerminalList(string token)
         {
             string apiUrl = $"{Helper.BaseURLdcs}/{"information/get-terminal-list"}";
@@ -378,7 +377,7 @@ namespace SPOSAPIDemo.API_Helper
                     }
                     else
                     {
-                        string error = await response.Content.ReadAsStringAsync(); 
+                        string error = await response.Content.ReadAsStringAsync();
                         return new TripListResponseModel
                         {
                             error = error,
@@ -389,6 +388,48 @@ namespace SPOSAPIDemo.API_Helper
             catch (Exception ex)
             {
                 return new TripListResponseModel
+                {
+                    error = $"An error occurred: {ex.Message}",
+                };
+            }
+
+        }
+
+        public static async Task<VesselPaxCodeResponseModel> GetVesselCode(string token)
+        {
+            string apiUrl = $"{Helper.BaseURL}/{"information/get-vessel-code"}";
+            try
+            {
+                using (HttpClient client = new HttpClient())
+                {
+                    client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+                    HttpResponseMessage response = await client.GetAsync(apiUrl);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string jsonResponse = await response.Content.ReadAsStringAsync();
+                        JObject json = JObject.Parse(jsonResponse);
+                        VesselPaxCode[] data = JsonConvert.DeserializeObject<VesselPaxCode[]>(json["data"].ToString());
+                        return new VesselPaxCodeResponseModel
+                        {
+                            data = data,
+                            err_msg = json["err_msg"].ToString(),
+                            err_num = json["err_num"].ToString()
+                        };
+                    }
+                    else
+                    {
+                        string error = await response.Content.ReadAsStringAsync();
+                        return new VesselPaxCodeResponseModel
+                        {
+                            error = error,
+                        };
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return new VesselPaxCodeResponseModel
                 {
                     error = $"An error occurred: {ex.Message}",
                 };
