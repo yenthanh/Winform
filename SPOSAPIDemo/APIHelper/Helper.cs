@@ -297,7 +297,7 @@ namespace SPOSAPIDemo.API_Helper
                     }
                     else
                     {
-                        string error = await response.Content.ReadAsStringAsync(); 
+                        string error = await response.Content.ReadAsStringAsync();
                         return new GetTerminalListResponseModel
                         {
                             error = error
@@ -312,8 +312,46 @@ namespace SPOSAPIDemo.API_Helper
                     error = $"An error occurred: {ex.Message}",
                 };
             }
-
         }
 
+        public static async Task<TripInfoResponseModel> GetTripInfo(string token, string trip_id, string voyage_date)
+        {
+            string apiUrl = $"{Helper.BaseURLdcs}/{"information/get-trip-info?trip_id=" + trip_id + "&voyage_date=" + voyage_date + ""}";
+            try
+            {
+                using (HttpClient client = new HttpClient())
+                {
+                    client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+                    HttpResponseMessage response = await client.GetAsync(apiUrl);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string jsonResponse = await response.Content.ReadAsStringAsync();
+                        JObject json = JObject.Parse(jsonResponse);
+                        TripInfo[] data = JsonConvert.DeserializeObject<TripInfo[]>(json["data"].ToString());
+                        return new TripInfoResponseModel
+                        {
+                            data = data,
+                            err_msg = json["err_msg"].ToString(),
+                            err_num = json["err_num"].ToString()
+                        };
+                    }
+                    else
+                    {
+                        string error = await response.Content.ReadAsStringAsync(); return new TripInfoResponseModel
+                        {
+                            error = error,
+                        };
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return new TripInfoResponseModel
+                {
+                    error = $"An error occurred: {ex.Message}",
+                };
+            }
+        }
     }
 }

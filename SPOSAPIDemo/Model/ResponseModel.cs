@@ -16,8 +16,11 @@
     {
         public TerminalList[] data { get; set; }
     }
+    public class TripInfoResponseModel : ResponseModel
+    {
+        public TripInfo[] data { get; set; }
+    }
 
-    
     public class ResponseModel
     {
         public string error { get; set; }
