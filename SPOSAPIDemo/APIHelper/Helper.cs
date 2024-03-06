@@ -147,6 +147,47 @@ namespace SPOSAPIDemo.API_Helper
             }
         }
 
+        public static async Task<GetPaxDetailResponseModel> GetPaxDetail(string token, string trip_id, string voyage_date, string boarding_pass_number, string pax_id, string include_cancel)
+        {
+            string apiUrl = $"{Helper.BaseURLdcs}/{"information/get-pax-detail?trip_id=" + trip_id + "&voyage_date=" + voyage_date + "&boarding_pass_number=" + boarding_pass_number + "&pax_id=" + pax_id + "&include_cancel=" + include_cancel + ""}";
+
+            try
+            {
+                using (HttpClient client = new HttpClient())
+                {
+
+                    client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+                    HttpResponseMessage response = await client.GetAsync(apiUrl);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string jsonResponse = await response.Content.ReadAsStringAsync();
+                        JObject json = JObject.Parse(jsonResponse);
+                        Model.GetPaxList[] data = JsonConvert.DeserializeObject<Model.GetPaxList[]>(json["data"].ToString());
+                        return new GetPaxDetailResponseModel
+                        {
+                            data = data,
+                            err_msg = json["err_msg"].ToString(),
+                            err_num = json["err_num"].ToString()
+                        };
+                    }
+                    else
+                    {
+                        string error = await response.Content.ReadAsStringAsync();
+                        return new GetPaxDetailResponseModel
+                        {
+                            error = error,
+                        };
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+
+        }
 
     }
 }

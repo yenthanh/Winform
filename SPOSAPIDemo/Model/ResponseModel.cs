@@ -8,6 +8,11 @@
     {
         public ResponseArray[] data { get; set; }
     }
+    public class GetPaxDetailResponseModel : ResponseModel
+    {
+        public GetPaxList[] data { get; set; }
+    }
+    
 
     public class ResponseModel
     {
