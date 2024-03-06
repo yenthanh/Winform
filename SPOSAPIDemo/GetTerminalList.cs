@@ -27,16 +27,18 @@ namespace SPOSAPIDemo
         private async void btnClickTelminalList_Click(object sender, EventArgs e)
         {
             var response = await Helper.GetTerminalList(token);
-            foreach (var a in response.data)
-            {
-                dataGridView2.Rows.Add(a.code, a.name, a.city_code, a.country_code);
-            }
-            txterr_msg.Text = response.err_msg;
-            txterr_num.Text = response.err_num;
-
             if (!string.IsNullOrEmpty(response.error))
             {
                 MessageBox.Show(response.error);
+            }
+            else
+            {
+                foreach (var a in response.data)
+                {
+                    dataGridView2.Rows.Add(a.code, a.name, a.city_code, a.country_code);
+                }
+                txterr_msg.Text = response.err_msg;
+                txterr_num.Text = response.err_num;
             }
         }
     }

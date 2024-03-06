@@ -28,17 +28,18 @@ namespace SPOSAPIDemo
             }
 
             var response = await Helper.SubmitCheckIn(token, txt1.Text, txt2.Text, paxDetailsList);
-
-            foreach (var dt in response.data)
-            {
-                dataGridView2.Rows.Add(dt.out_num, dt.out_str, dt.boarding_pass_number, dt.pax_id);
-            }
-            txterr_msg.Text = response.err_msg;
-            txterr_num.Text = response.err_num;
-
             if (!string.IsNullOrEmpty(response.error))
             {
                 MessageBox.Show(response.error);
+            }
+            else
+            {
+                foreach (var dt in response.data)
+                {
+                    dataGridView2.Rows.Add(dt.out_num, dt.out_str, dt.boarding_pass_number, dt.pax_id);
+                }
+                txterr_msg.Text = response.err_msg;
+                txterr_num.Text = response.err_num;
             }
         }
     }

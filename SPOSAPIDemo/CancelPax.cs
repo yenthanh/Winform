@@ -17,12 +17,16 @@ namespace SPOSAPIDemo
         private async void button1_Click(object sender, EventArgs e)
         {
             var response = await Helper.CancelPax(token, txttrip_id.Text, txtvoyage_date.Text, txtboarding_pass_number.Text, Convert.ToInt32(txtpax_id.Text));
-            txterr_msg.Text = response.err_msg;
-            txterr_num.Text = response.err_num;
+      
 
             if (!string.IsNullOrEmpty(response.error))
             {
                 MessageBox.Show(response.error);
+            }
+            else
+            {
+                txterr_msg.Text = response.err_msg;
+                txterr_num.Text = response.err_num;
             }
         }
     }
