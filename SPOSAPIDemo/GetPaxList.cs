@@ -47,8 +47,8 @@ namespace SPOSAPIDemo
                                            , a.dcs_booking_code, a.cabin, a.passport_type
                                            , a.boarding_sequence, a.boarding_pass_number, a.gender
                                            , a.pax_type, a.dob, a.nationality
-                                           , a.membership_no, a.travel_document_issuing_country, a.travel_document_expiry_date
-                                           , a.country_residence, a.bag_allowance, a.ssr, a.tag_number
+                                           , a.membership_no, a.travel_document_issuing_country, a.travel_document_exp_date
+                                           , a.country_residence, a.bag_allowance, a.ssr, a.baggage_tag_number
                                            , a.baggage_type, a.checkin, a.pre_imm
                                            , a.boarding, a.pontoon, a.destination
                                            , a.security_program_flag, a.group_travel_flag, a.immigration

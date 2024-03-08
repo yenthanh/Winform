@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,9 @@ namespace SPOSAPIDemo.Model
         public string last_name {  get; set; }
         public string first_name {  get; set; }
         public string customer_booking_code {  get; set; }
+
+        [JsonProperty("class")]
+        public string pax_class { get; set; }
         public string dcs_booking_code {  get; set; }
         public string cabin {  get; set; }
         public string passport_type {  get; set; }
@@ -25,11 +29,13 @@ namespace SPOSAPIDemo.Model
         public string nationality {  get; set; }
         public string membership_no {  get; set; }
         public string travel_document_issuing_country {  get; set; }
-        public string travel_document_expiry_date {  get; set; }
+        public string travel_document_exp_date {  get; set; }
+        public string country_issue { get; set; }
         public string country_residence {  get; set; }
-        public int bag_allowance {  get; set; }
+        public int bag_allowance { get; set; }
+        public int additional_baggage_allowance { get; set; }
         public string ssr {  get; set; }
-        public string tag_number {  get; set; }
+        public string baggage_tag_number {  get; set; }
         public string baggage_type { get; set; }
         public int checkin { get; set; }
         public int pre_imm { get; set; }
