@@ -43,4 +43,9 @@
         public string err_msg { get; set; }
         public string err_num { get; set; }
     }
+    public class PaxId
+    {
+        public int pax_id { get; set; }
+    }
+    
 }

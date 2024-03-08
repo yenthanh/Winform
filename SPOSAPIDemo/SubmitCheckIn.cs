@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using SPOSAPIDemo.API_Helper;
+using SPOSAPIDemo.Model;
 
 namespace SPOSAPIDemo
 {
@@ -17,13 +18,13 @@ namespace SPOSAPIDemo
         private async void button1_Click(object sender, EventArgs e)
         {
             string[] paxDetailsArray = txt3.Text.Split(new char[] { ',', ' ' }, StringSplitOptions.RemoveEmptyEntries);
-            List<int> paxDetailsList = new List<int>();
+            List<PaxId> paxDetailsList = new List<PaxId>();
 
             foreach (string value in paxDetailsArray)
             {
                 if (int.TryParse(value, out int intValue))
                 {
-                    paxDetailsList.Add(intValue);
+                    paxDetailsList.Add(new PaxId { pax_id = intValue});
                 }
             }
 

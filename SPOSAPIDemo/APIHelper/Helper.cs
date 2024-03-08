@@ -468,20 +468,19 @@ namespace SPOSAPIDemo.API_Helper
                 }
             }
         }
-        public static async Task<AddPaxRecordResponseModel> SubmitCheckIn(string token, string trip_id, string voyage_date, List<int> pax_details)
+        public static async Task<AddPaxRecordResponseModel> SubmitCheckIn(string token, string trip_id, string voyage_date, List<PaxId> pax_details)
         {
             string apiUrl = $"{Helper.BaseURLdcs}/{"check-in/submit-check-in"}";
             try
             {
                 using (HttpClient client = new HttpClient())
                 {
-                    SmCheckIn submitCheckIn = new SmCheckIn();
                     client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
                     var requestData = new
                     {
                         trip_id,
                         voyage_date,
-                        pax_details = submitCheckIn
+                        pax_details
                     };
 
                     string jsonRequestData = JsonConvert.SerializeObject(requestData);
