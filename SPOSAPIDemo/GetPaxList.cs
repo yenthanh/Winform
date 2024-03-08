@@ -41,21 +41,14 @@ namespace SPOSAPIDemo
             {
                 foreach (Model.GetPaxList a in response.data)
                 {
-
                     dataGridView2.Rows.Add(a.pax_id, a.passport_number, a.ticket_number,
-                                           a.last_name, a.first_name, a.customer_booking_code
-                                           , a.dcs_booking_code, a.cabin, a.passport_type
-                                           , a.boarding_sequence, a.boarding_pass_number, a.gender
-                                           , a.pax_type, a.dob, a.nationality
-                                           , a.membership_no, a.travel_document_issuing_country, a.travel_document_exp_date
-                                           , a.country_residence, a.bag_allowance, a.ssr, a.baggage_tag_number
-                                           , a.baggage_type, a.checkin, a.pre_imm
-                                           , a.boarding, a.pontoon, a.destination
-                                           , a.security_program_flag, a.group_travel_flag, a.immigration
-                                           , a.source_check_in, a.last_min_pax, a.ntl_flag
-                                           , a.transfer_from, a.remarks, a.cancelled
-                                           , a.date_created, a.create_by, a.date_updated
-                                           , a.updated_by);
+                                           a.last_name, a.first_name, a.gender, a.nationality, a.dob, a.travel_document_exp_date, a.country_issue, a.country_residence
+                                           , a.destination, a.group_travel_flag, a.date_created, a.create_by, a.date_updated, a.updated_by
+                                           , a.checkin, a.pre_imm, a.immigration, a.boarding, a.pontoon, a.cancelled, a.remarks
+                                           , a.transfer_from, a.baggage_tag_number, a.ntl_flag, a.last_min_pax, a.customer_booking_code
+                                           , a.pax_class, a.pax_type, a.security_program_flag, a.bag_allowance, a.additional_baggage_allowance
+                                           , a.membership_no, a.source_check_in, a.ssr, a.passport_type, a.boarding_pass_number
+                                           );
 
                 }
                 txterr_msg.Text = response.err_msg;

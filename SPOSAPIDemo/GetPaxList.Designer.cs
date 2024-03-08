@@ -31,11 +31,21 @@
             this.voyage_date = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.txterr_msg = new System.Windows.Forms.TextBox();
+            this.txterr_num = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.trip_id = new System.Windows.Forms.Label();
+            this.txt2 = new System.Windows.Forms.TextBox();
+            this.txt1 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txt3 = new System.Windows.Forms.TextBox();
             this.pax_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.passport_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ticket_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.first_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.last_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.first_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nationality = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dob = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -70,16 +80,6 @@
             this.ssr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.passport_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.boarding_pass_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txterr_msg = new System.Windows.Forms.TextBox();
-            this.txterr_num = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.trip_id = new System.Windows.Forms.Label();
-            this.txt2 = new System.Windows.Forms.TextBox();
-            this.txt1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txt3 = new System.Windows.Forms.TextBox();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -114,8 +114,8 @@
             this.pax_id,
             this.passport_number,
             this.ticket_number,
-            this.first_name,
             this.last_name,
+            this.first_name,
             this.gender,
             this.nationality,
             this.dob,
@@ -158,6 +158,93 @@
             this.dataGridView2.Size = new System.Drawing.Size(1352, 292);
             this.dataGridView2.TabIndex = 4;
             // 
+            // txterr_msg
+            // 
+            this.txterr_msg.Location = new System.Drawing.Point(328, 30);
+            this.txterr_msg.Name = "txterr_msg";
+            this.txterr_msg.ReadOnly = true;
+            this.txterr_msg.Size = new System.Drawing.Size(174, 22);
+            this.txterr_msg.TabIndex = 3;
+            // 
+            // txterr_num
+            // 
+            this.txterr_num.Location = new System.Drawing.Point(85, 27);
+            this.txterr_num.Name = "txterr_num";
+            this.txterr_num.ReadOnly = true;
+            this.txterr_num.Size = new System.Drawing.Size(174, 22);
+            this.txterr_num.TabIndex = 2;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(266, 33);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(56, 16);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "err_msg";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(24, 33);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(55, 16);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "err_num";
+            // 
+            // trip_id
+            // 
+            this.trip_id.AutoSize = true;
+            this.trip_id.Location = new System.Drawing.Point(12, 13);
+            this.trip_id.Name = "trip_id";
+            this.trip_id.Size = new System.Drawing.Size(43, 16);
+            this.trip_id.TabIndex = 23;
+            this.trip_id.Text = "trip_id";
+            // 
+            // txt2
+            // 
+            this.txt2.Location = new System.Drawing.Point(451, 10);
+            this.txt2.Name = "txt2";
+            this.txt2.Size = new System.Drawing.Size(174, 22);
+            this.txt2.TabIndex = 26;
+            this.txt2.Text = "20240307";
+            // 
+            // txt1
+            // 
+            this.txt1.Location = new System.Drawing.Point(105, 10);
+            this.txt1.Name = "txt1";
+            this.txt1.Size = new System.Drawing.Size(159, 22);
+            this.txt1.TabIndex = 25;
+            this.txt1.Text = "HFF124";
+            this.txt1.TextChanged += new System.EventHandler(this.txt1_TextChanged);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1031, 5);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(115, 33);
+            this.button1.TabIndex = 28;
+            this.button1.Text = "Get Pax List";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(675, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(97, 16);
+            this.label1.TabIndex = 28;
+            this.label1.Text = "include_cancel";
+            // 
+            // txt3
+            // 
+            this.txt3.Location = new System.Drawing.Point(822, 10);
+            this.txt3.Name = "txt3";
+            this.txt3.Size = new System.Drawing.Size(159, 22);
+            this.txt3.TabIndex = 27;
+            this.txt3.Text = "\r\n0";
+            // 
             // pax_id
             // 
             this.pax_id.HeaderText = "pax_id";
@@ -182,14 +269,6 @@
             this.ticket_number.ReadOnly = true;
             this.ticket_number.Width = 125;
             // 
-            // first_name
-            // 
-            this.first_name.HeaderText = "first_name";
-            this.first_name.MinimumWidth = 6;
-            this.first_name.Name = "first_name";
-            this.first_name.ReadOnly = true;
-            this.first_name.Width = 125;
-            // 
             // last_name
             // 
             this.last_name.HeaderText = "last_name";
@@ -197,6 +276,14 @@
             this.last_name.Name = "last_name";
             this.last_name.ReadOnly = true;
             this.last_name.Width = 125;
+            // 
+            // first_name
+            // 
+            this.first_name.HeaderText = "first_name";
+            this.first_name.MinimumWidth = 6;
+            this.first_name.Name = "first_name";
+            this.first_name.ReadOnly = true;
+            this.first_name.Width = 125;
             // 
             // gender
             // 
@@ -470,93 +557,6 @@
             this.boarding_pass_number.ReadOnly = true;
             this.boarding_pass_number.Width = 125;
             // 
-            // txterr_msg
-            // 
-            this.txterr_msg.Location = new System.Drawing.Point(328, 30);
-            this.txterr_msg.Name = "txterr_msg";
-            this.txterr_msg.ReadOnly = true;
-            this.txterr_msg.Size = new System.Drawing.Size(174, 22);
-            this.txterr_msg.TabIndex = 3;
-            // 
-            // txterr_num
-            // 
-            this.txterr_num.Location = new System.Drawing.Point(85, 27);
-            this.txterr_num.Name = "txterr_num";
-            this.txterr_num.ReadOnly = true;
-            this.txterr_num.Size = new System.Drawing.Size(174, 22);
-            this.txterr_num.TabIndex = 2;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(266, 33);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(56, 16);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "err_msg";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(24, 33);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(55, 16);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "err_num";
-            // 
-            // trip_id
-            // 
-            this.trip_id.AutoSize = true;
-            this.trip_id.Location = new System.Drawing.Point(12, 13);
-            this.trip_id.Name = "trip_id";
-            this.trip_id.Size = new System.Drawing.Size(43, 16);
-            this.trip_id.TabIndex = 23;
-            this.trip_id.Text = "trip_id";
-            // 
-            // txt2
-            // 
-            this.txt2.Location = new System.Drawing.Point(451, 10);
-            this.txt2.Name = "txt2";
-            this.txt2.Size = new System.Drawing.Size(174, 22);
-            this.txt2.TabIndex = 26;
-            this.txt2.Text = "20240307";
-            // 
-            // txt1
-            // 
-            this.txt1.Location = new System.Drawing.Point(105, 10);
-            this.txt1.Name = "txt1";
-            this.txt1.Size = new System.Drawing.Size(159, 22);
-            this.txt1.TabIndex = 25;
-            this.txt1.Text = "HFF124";
-            this.txt1.TextChanged += new System.EventHandler(this.txt1_TextChanged);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(1031, 5);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(115, 33);
-            this.button1.TabIndex = 28;
-            this.button1.Text = "Get Pax List";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(675, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(97, 16);
-            this.label1.TabIndex = 28;
-            this.label1.Text = "include_cancel";
-            // 
-            // txt3
-            // 
-            this.txt3.Location = new System.Drawing.Point(822, 10);
-            this.txt3.Name = "txt3";
-            this.txt3.Size = new System.Drawing.Size(159, 22);
-            this.txt3.TabIndex = 27;
-            this.txt3.Text = "\r\n0";
-            // 
             // GetPaxList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -599,8 +599,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn pax_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn passport_number;
         private System.Windows.Forms.DataGridViewTextBoxColumn ticket_number;
-        private System.Windows.Forms.DataGridViewTextBoxColumn first_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn last_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn first_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn gender;
         private System.Windows.Forms.DataGridViewTextBoxColumn nationality;
         private System.Windows.Forms.DataGridViewTextBoxColumn dob;
