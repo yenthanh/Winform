@@ -149,15 +149,16 @@
             this.btnClickTelminalList.UseVisualStyleBackColor = true;
             this.btnClickTelminalList.Click += new System.EventHandler(this.btnClickTelminalList_Click);
             // 
-            // GetTerminalListRecord
+            // GetTerminalList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(586, 304);
             this.Controls.Add(this.btnClickTelminalList);
             this.Controls.Add(this.groupBox3);
-            this.Name = "GetTerminalListRecord";
-            this.Text = "GetTerminalListRecord";
+            this.Name = "GetTerminalList";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Get Terminal List";
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();

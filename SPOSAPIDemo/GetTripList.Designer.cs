@@ -457,7 +457,8 @@
             this.Controls.Add(this.voyage_date);
             this.Controls.Add(this.button1);
             this.Name = "GetTripList";
-            this.Text = "GetTripList";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Get Trip List";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();

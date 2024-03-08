@@ -105,7 +105,6 @@
             this.txterr_msg.ReadOnly = true;
             this.txterr_msg.Size = new System.Drawing.Size(174, 22);
             this.txterr_msg.TabIndex = 3;
-          
             // 
             // txterr_num
             // 
@@ -114,7 +113,6 @@
             this.txterr_num.ReadOnly = true;
             this.txterr_num.Size = new System.Drawing.Size(174, 22);
             this.txterr_num.TabIndex = 2;
-           
             // 
             // label4
             // 
@@ -124,7 +122,6 @@
             this.label4.Size = new System.Drawing.Size(56, 16);
             this.label4.TabIndex = 1;
             this.label4.Text = "err_msg";
-         
             // 
             // label3
             // 
@@ -134,7 +131,6 @@
             this.label3.Size = new System.Drawing.Size(55, 16);
             this.label3.TabIndex = 0;
             this.label3.Text = "err_num";
-           
             // 
             // trip_id
             // 
@@ -144,7 +140,6 @@
             this.trip_id.Size = new System.Drawing.Size(69, 16);
             this.trip_id.TabIndex = 31;
             this.trip_id.Text = "last_name";
-          
             // 
             // txt2
             // 
@@ -152,7 +147,6 @@
             this.txt2.Name = "txt2";
             this.txt2.Size = new System.Drawing.Size(174, 22);
             this.txt2.TabIndex = 34;
-          
             // 
             // txt1
             // 
@@ -160,7 +154,6 @@
             this.txt1.Name = "txt1";
             this.txt1.Size = new System.Drawing.Size(174, 22);
             this.txt1.TabIndex = 33;
-
             // 
             // button1
             // 
@@ -222,7 +215,6 @@
             this.dataGridView2.RowTemplate.Height = 24;
             this.dataGridView2.Size = new System.Drawing.Size(652, 175);
             this.dataGridView2.TabIndex = 4;
-           
             // 
             // pax_id
             // 
@@ -544,7 +536,6 @@
             this.voyage_date.Size = new System.Drawing.Size(87, 16);
             this.voyage_date.TabIndex = 32;
             this.voyage_date.Text = "voyage_date";
-            
             // 
             // groupBox3
             // 
@@ -559,7 +550,6 @@
             this.groupBox3.TabIndex = 30;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Get Pax List";
-           
             // 
             // label1
             // 
@@ -569,7 +559,6 @@
             this.label1.Size = new System.Drawing.Size(43, 16);
             this.label1.TabIndex = 36;
             this.label1.Text = "trip_id";
-      
             // 
             // txt4
             // 
@@ -577,7 +566,6 @@
             this.txt4.Name = "txt4";
             this.txt4.Size = new System.Drawing.Size(174, 22);
             this.txt4.TabIndex = 39;
-     
             // 
             // txt3
             // 
@@ -585,7 +573,6 @@
             this.txt3.Name = "txt3";
             this.txt3.Size = new System.Drawing.Size(174, 22);
             this.txt3.TabIndex = 38;
-
             // 
             // label2
             // 
@@ -595,7 +582,6 @@
             this.label2.Size = new System.Drawing.Size(68, 16);
             this.label2.TabIndex = 37;
             this.label2.Text = "first_name";
-         
             // 
             // label7
             // 
@@ -605,7 +591,6 @@
             this.label7.Size = new System.Drawing.Size(156, 16);
             this.label7.TabIndex = 44;
             this.label7.Text = "customer_booking_code";
-      
             // 
             // txt8
             // 
@@ -613,7 +598,6 @@
             this.txt8.Name = "txt8";
             this.txt8.Size = new System.Drawing.Size(174, 22);
             this.txt8.TabIndex = 47;
-     
             // 
             // txt7
             // 
@@ -621,7 +605,6 @@
             this.txt7.Name = "txt7";
             this.txt7.Size = new System.Drawing.Size(174, 22);
             this.txt7.TabIndex = 46;
-    
             // 
             // label8
             // 
@@ -631,7 +614,6 @@
             this.label8.Size = new System.Drawing.Size(72, 16);
             this.label8.TabIndex = 45;
             this.label8.Text = "destination";
-      
             // 
             // label9
             // 
@@ -641,7 +623,6 @@
             this.label9.Size = new System.Drawing.Size(123, 16);
             this.label9.TabIndex = 41;
             this.label9.Text = "dcs_booking_code";
-
             // 
             // txt5
             // 
@@ -649,7 +630,6 @@
             this.txt5.Name = "txt5";
             this.txt5.Size = new System.Drawing.Size(174, 22);
             this.txt5.TabIndex = 42;
-     
             // 
             // txt6
             // 
@@ -657,7 +637,6 @@
             this.txt6.Name = "txt6";
             this.txt6.Size = new System.Drawing.Size(174, 22);
             this.txt6.TabIndex = 43;
-       
             // 
             // label10
             // 
@@ -667,7 +646,6 @@
             this.label10.Size = new System.Drawing.Size(112, 16);
             this.label10.TabIndex = 40;
             this.label10.Text = "passport_number";
- 
             // 
             // label11
             // 
@@ -677,7 +655,6 @@
             this.label11.Size = new System.Drawing.Size(97, 16);
             this.label11.TabIndex = 41;
             this.label11.Text = "include_cancel";
-    
             // 
             // txt9
             // 
@@ -685,7 +662,6 @@
             this.txt9.Name = "txt9";
             this.txt9.Size = new System.Drawing.Size(174, 22);
             this.txt9.TabIndex = 42;
-   
             // 
             // txt10
             // 
@@ -693,7 +669,6 @@
             this.txt10.Name = "txt10";
             this.txt10.Size = new System.Drawing.Size(174, 22);
             this.txt10.TabIndex = 43;
-    
             // 
             // label12
             // 
@@ -703,9 +678,8 @@
             this.label12.Size = new System.Drawing.Size(128, 16);
             this.label12.TabIndex = 40;
             this.label12.Text = "boarding_sequence";
-
             // 
-            // GetPaxInfoRecord
+            // GetPaxInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -732,8 +706,9 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.voyage_date);
             this.Controls.Add(this.groupBox3);
-            this.Name = "GetPaxInfoRecord";
-            this.Text = "GetPaxInfo";
+            this.Name = "GetPaxInfo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Get Pax Info";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();

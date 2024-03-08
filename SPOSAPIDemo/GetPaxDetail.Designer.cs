@@ -616,7 +616,7 @@
             this.Controls.Add(this.groupBox3);
             this.Name = "GetPaxDetail";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "GetPaxDetail";
+            this.Text = "Get Pax Detail";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();

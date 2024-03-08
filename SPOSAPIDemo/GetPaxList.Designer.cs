@@ -572,7 +572,7 @@
             this.Controls.Add(this.button1);
             this.Name = "GetPaxList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "GetPaxList";
+            this.Text = "Get Pax List";
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();

@@ -245,7 +245,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "SubmitCheckIn";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "SubmitCheckIn";
+            this.Text = "Submit CheckIn";
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();

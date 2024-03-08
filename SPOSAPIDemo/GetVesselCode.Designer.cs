@@ -339,15 +339,16 @@
             this.btnClickGetVesselCode.UseVisualStyleBackColor = true;
             this.btnClickGetVesselCode.Click += new System.EventHandler(this.btnClickGetVesselCode_Click);
             // 
-            // GetVesselCodeRecord
+            // GetVesselCode
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(702, 313);
             this.Controls.Add(this.btnClickGetVesselCode);
             this.Controls.Add(this.groupBox3);
-            this.Name = "GetVesselCodeRecord";
-            this.Text = "GetVesselCodeRecord";
+            this.Name = "GetVesselCode";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Get Vessel Code";
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();

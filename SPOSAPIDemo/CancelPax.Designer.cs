@@ -194,7 +194,8 @@
             this.Controls.Add(this.btnClickCacnelPax);
             this.Controls.Add(this.groupBox1);
             this.Name = "CancelPax";
-            this.Text = "CancelPax";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Cancel Pax";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
