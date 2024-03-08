@@ -87,7 +87,7 @@
             // voyage_date
             // 
             this.voyage_date.AutoSize = true;
-            this.voyage_date.Location = new System.Drawing.Point(301, 13);
+            this.voyage_date.Location = new System.Drawing.Point(314, 13);
             this.voyage_date.Name = "voyage_date";
             this.voyage_date.Size = new System.Drawing.Size(87, 16);
             this.voyage_date.TabIndex = 24;
@@ -100,9 +100,9 @@
             this.groupBox3.Controls.Add(this.txterr_num);
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.label3);
-            this.groupBox3.Location = new System.Drawing.Point(-1, 87);
+            this.groupBox3.Location = new System.Drawing.Point(-1, 44);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(569, 252);
+            this.groupBox3.Size = new System.Drawing.Size(1364, 366);
             this.groupBox3.TabIndex = 22;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Get Pax List";
@@ -155,7 +155,7 @@
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowHeadersWidth = 51;
             this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(555, 175);
+            this.dataGridView2.Size = new System.Drawing.Size(1352, 292);
             this.dataGridView2.TabIndex = 4;
             // 
             // pax_id
@@ -515,7 +515,7 @@
             // 
             // txt2
             // 
-            this.txt2.Location = new System.Drawing.Point(394, 10);
+            this.txt2.Location = new System.Drawing.Point(451, 10);
             this.txt2.Name = "txt2";
             this.txt2.Size = new System.Drawing.Size(174, 22);
             this.txt2.TabIndex = 26;
@@ -523,7 +523,7 @@
             // 
             // txt1
             // 
-            this.txt1.Location = new System.Drawing.Point(125, 7);
+            this.txt1.Location = new System.Drawing.Point(105, 10);
             this.txt1.Name = "txt1";
             this.txt1.Size = new System.Drawing.Size(159, 22);
             this.txt1.TabIndex = 25;
@@ -532,7 +532,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(453, 40);
+            this.button1.Location = new System.Drawing.Point(1031, 5);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(115, 33);
             this.button1.TabIndex = 28;
@@ -543,7 +543,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 48);
+            this.label1.Location = new System.Drawing.Point(675, 13);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(97, 16);
             this.label1.TabIndex = 28;
@@ -551,7 +551,7 @@
             // 
             // txt3
             // 
-            this.txt3.Location = new System.Drawing.Point(125, 45);
+            this.txt3.Location = new System.Drawing.Point(822, 10);
             this.txt3.Name = "txt3";
             this.txt3.Size = new System.Drawing.Size(159, 22);
             this.txt3.TabIndex = 27;
@@ -561,7 +561,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(575, 350);
+            this.ClientSize = new System.Drawing.Size(1375, 422);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txt3);
             this.Controls.Add(this.voyage_date);
@@ -571,6 +571,7 @@
             this.Controls.Add(this.txt1);
             this.Controls.Add(this.button1);
             this.Name = "GetPaxList";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GetPaxList";
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();

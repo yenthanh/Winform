@@ -179,6 +179,7 @@
             this.Controls.Add(this.btnupdatepax);
             this.Controls.Add(this.btnaddpax);
             this.Name = "MenuAPI";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MenuAPI";
             this.ResumeLayout(false);
             this.PerformLayout();
