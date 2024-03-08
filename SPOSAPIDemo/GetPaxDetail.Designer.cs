@@ -400,7 +400,7 @@
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowHeadersWidth = 51;
             this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(652, 175);
+            this.dataGridView2.Size = new System.Drawing.Size(1342, 292);
             this.dataGridView2.TabIndex = 4;
             // 
             // pax_id
@@ -488,7 +488,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(5, 89);
+            this.label10.Location = new System.Drawing.Point(857, 10);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(97, 16);
             this.label10.TabIndex = 58;
@@ -496,15 +496,16 @@
             // 
             // txt5
             // 
-            this.txt5.Location = new System.Drawing.Point(126, 86);
+            this.txt5.Location = new System.Drawing.Point(970, 7);
             this.txt5.Name = "txt5";
-            this.txt5.Size = new System.Drawing.Size(174, 22);
+            this.txt5.Size = new System.Drawing.Size(47, 22);
             this.txt5.TabIndex = 63;
+            this.txt5.Text = "0";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 48);
+            this.label1.Location = new System.Drawing.Point(405, 10);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(150, 16);
             this.label1.TabIndex = 54;
@@ -512,22 +513,24 @@
             // 
             // txt4
             // 
-            this.txt4.Location = new System.Drawing.Point(467, 48);
+            this.txt4.Location = new System.Drawing.Point(759, 7);
             this.txt4.Name = "txt4";
-            this.txt4.Size = new System.Drawing.Size(174, 22);
+            this.txt4.Size = new System.Drawing.Size(82, 22);
             this.txt4.TabIndex = 57;
+            this.txt4.Text = "501446";
             // 
             // txt3
             // 
-            this.txt3.Location = new System.Drawing.Point(168, 48);
+            this.txt3.Location = new System.Drawing.Point(571, 7);
             this.txt3.Name = "txt3";
-            this.txt3.Size = new System.Drawing.Size(174, 22);
+            this.txt3.Size = new System.Drawing.Size(109, 22);
             this.txt3.TabIndex = 56;
+            this.txt3.Text = "42366193";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(380, 51);
+            this.label2.Location = new System.Drawing.Point(696, 10);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 16);
             this.label2.TabIndex = 55;
@@ -536,7 +539,7 @@
             // trip_id
             // 
             this.trip_id.AutoSize = true;
-            this.trip_id.Location = new System.Drawing.Point(19, 5);
+            this.trip_id.Location = new System.Drawing.Point(5, 10);
             this.trip_id.Name = "trip_id";
             this.trip_id.Size = new System.Drawing.Size(43, 16);
             this.trip_id.TabIndex = 49;
@@ -544,23 +547,25 @@
             // 
             // txt2
             // 
-            this.txt2.Location = new System.Drawing.Point(427, 5);
+            this.txt2.Location = new System.Drawing.Point(282, 7);
             this.txt2.Name = "txt2";
-            this.txt2.Size = new System.Drawing.Size(174, 22);
+            this.txt2.Size = new System.Drawing.Size(107, 22);
             this.txt2.TabIndex = 52;
+            this.txt2.Text = "20240307";
             // 
             // txt1
             // 
-            this.txt1.Location = new System.Drawing.Point(126, 5);
+            this.txt1.Location = new System.Drawing.Point(64, 7);
             this.txt1.Name = "txt1";
-            this.txt1.Size = new System.Drawing.Size(174, 22);
+            this.txt1.Size = new System.Drawing.Size(99, 22);
             this.txt1.TabIndex = 51;
+            this.txt1.Text = "HFF124";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(439, 81);
+            this.button1.Location = new System.Drawing.Point(1099, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(115, 33);
+            this.button1.Size = new System.Drawing.Size(258, 33);
             this.button1.TabIndex = 53;
             this.button1.Text = "Get Pax Info";
             this.button1.UseVisualStyleBackColor = true;
@@ -569,7 +574,7 @@
             // voyage_date
             // 
             this.voyage_date.AutoSize = true;
-            this.voyage_date.Location = new System.Drawing.Point(334, 5);
+            this.voyage_date.Location = new System.Drawing.Point(179, 10);
             this.voyage_date.Name = "voyage_date";
             this.voyage_date.Size = new System.Drawing.Size(87, 16);
             this.voyage_date.TabIndex = 50;
@@ -582,9 +587,9 @@
             this.groupBox3.Controls.Add(this.txterr_num);
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.label3);
-            this.groupBox3.Location = new System.Drawing.Point(8, 120);
+            this.groupBox3.Location = new System.Drawing.Point(8, 41);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(664, 252);
+            this.groupBox3.Size = new System.Drawing.Size(1355, 369);
             this.groupBox3.TabIndex = 48;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Get Pax List";
@@ -593,7 +598,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(689, 397);
+            this.ClientSize = new System.Drawing.Size(1375, 422);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.txt5);
             this.Controls.Add(this.label1);
@@ -602,8 +607,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.trip_id);
             this.Controls.Add(this.txt2);
-            this.Controls.Add(this.txt1);
             this.Controls.Add(this.button1);
+            this.Controls.Add(this.txt1);
             this.Controls.Add(this.voyage_date);
             this.Controls.Add(this.groupBox3);
             this.Name = "GetPaxDetail";

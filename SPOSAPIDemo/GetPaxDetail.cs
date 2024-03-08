@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SPOSAPIDemo.API_Helper;
 using SPOSAPIDemo.Model;
+using System.Diagnostics;
 
 namespace SPOSAPIDemo
 {
@@ -34,24 +35,39 @@ namespace SPOSAPIDemo
             else
             {
                 foreach (Model.GetPaxList a in response.data)
+
+
                 {
-                    dataGridView2.Rows.Add(a.pax_id, a.passport_number, a.ticket_number,
-                                           a.last_name, a.first_name, a.customer_booking_code
-                                           , a.dcs_booking_code, a.cabin, a.passport_type
-                                           , a.boarding_sequence, a.boarding_pass_number, a.gender
-                                           , a.pax_type, a.dob, a.nationality
-                                           , a.membership_no, a.travel_document_issuing_country, a.travel_document_expiry_date
-                                           , a.country_residence, a.bag_allowance, a.ssr, a.tag_number
-                                           , a.baggage_type, a.checkin, a.pre_imm
-                                           , a.boarding, a.pontoon, a.destination
-                                           , a.security_program_flag, a.group_travel_flag, a.immigration
-                                           , a.source_check_in, a.last_min_pax, a.ntl_flag
-                                           , a.transfer_from, a.remarks, a.cancelled
-                                           , a.date_created, a.create_by, a.date_updated
-                                           , a.updated_by);
+                    Debug.WriteLine("gender: " + a.baggage_type);
+                    Debug.WriteLine("gender: " + a.boarding_sequence);
+                    Debug.WriteLine("gender: " + a.dcs_booking_code);
+                    Debug.WriteLine("gender: " + a.cabin);
+
+
+
+
+                    // Trước khi thêm dữ liệu vào DataGridView, kiểm tra giá trị null hoặc rỗng
+                    //dataGridView2.Rows.Add(a.pax_id, a.passport_number, a.ticket_number,
+                    //                       a.last_name, a.first_name, a.gender, a.nationality, a.dob, a.travel_document_expiry_date, a.travel_document_issuing_country, a.country_residence, a.destination
+                    //                       , a.group_travel_flag, a.date_created, a.create_by, a.date_updated, a.updated_by, a.checkin, a.pre_imm, a.immigration, a.boarding, a.pontoon, a.cancelled, a.remarks, a.transfer_from,
+                    //                       , a.tag_number, a.ntl_flag, a.last_min_pax
+                    //                       , a.customer_booking_code, a.pax_type, a.security_program_flag, a.bag_allowance, a.membership_no, a.source_check_in, a.ssr, a.passport_type, a.boarding_pass_number
+
+
+                    //                       , a.dcs_booking_code, a.cabin
+                    //                       , a.boarding_sequence
+
+
+                    //                       , a.baggage_type
+
+
+
+                    //                       );
+
                     txterr_msg.Text = response.err_msg;
                     txterr_num.Text = response.err_num;
                 }
+
             }
         }
 
