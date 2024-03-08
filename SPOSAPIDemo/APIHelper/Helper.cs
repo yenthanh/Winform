@@ -224,9 +224,9 @@ namespace SPOSAPIDemo.API_Helper
                 };
             }
         }
-        public static async Task<GetPaxResponseModel> GetPaxList(string token, string terminal, string voyage_date, string include_cancel)
+        public static async Task<GetPaxResponseModel> GetPaxList(string token, string trip_id, string voyage_date, string include_cancel)
         {
-            string apiUrl = $"{Helper.BaseURLdcs}/{"information/get-pax-list?terminal=" + terminal + "&voyage_date=" + voyage_date + "&include_cancel=" + include_cancel + ""}";
+            string apiUrl = $"{Helper.BaseURLdcs}/information/get-pax-list?trip_id={trip_id}&voyage_date={voyage_date}&include_cancel={include_cancel}";
 
             try
             {

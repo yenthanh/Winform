@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SPOSAPIDemo.API_Helper;
 using SPOSAPIDemo.Model;
+using System.Diagnostics;
 
 namespace SPOSAPIDemo
 {
@@ -26,7 +27,12 @@ namespace SPOSAPIDemo
 
         private async void button1_Click(object sender, EventArgs e)
         {
-            var response = await Helper.GetPaxList(token, txt1.Text, txt2.Text, txt3.Text);
+            Debug.WriteLine("txt1.Text: " + txt1.Text); // In giá trị của txt3.Text ra Output window
+            Debug.WriteLine("txt2.Text: " + txt2.Text); // In giá trị của txt3.Text ra Output window
+            Debug.WriteLine("txt3.Text: " + txt3.Text); // In giá trị của txt3.Text ra Output window
+            var includeCancel = txt3.Text.Trim();
+
+            var response = await Helper.GetPaxList(token, txt1.Text, txt2.Text, includeCancel);
             if (!string.IsNullOrEmpty(response.error))
             {
                 MessageBox.Show(response.error);
@@ -35,6 +41,7 @@ namespace SPOSAPIDemo
             {
                 foreach (Model.GetPaxList a in response.data)
                 {
+
                     dataGridView2.Rows.Add(a.pax_id, a.passport_number, a.ticket_number,
                                            a.last_name, a.first_name, a.customer_booking_code
                                            , a.dcs_booking_code, a.cabin, a.passport_type
@@ -54,6 +61,11 @@ namespace SPOSAPIDemo
                 txterr_msg.Text = response.err_msg;
                 txterr_num.Text = response.err_num;
             }
+        }
+
+        private void txt1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -92,7 +92,6 @@
             this.voyage_date.Size = new System.Drawing.Size(87, 16);
             this.voyage_date.TabIndex = 24;
             this.voyage_date.Text = "voyage_date";
-     
             // 
             // groupBox3
             // 
@@ -107,7 +106,6 @@
             this.groupBox3.TabIndex = 22;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Get Pax List";
-           
             // 
             // dataGridView2
             // 
@@ -159,7 +157,6 @@
             this.dataGridView2.RowTemplate.Height = 24;
             this.dataGridView2.Size = new System.Drawing.Size(555, 175);
             this.dataGridView2.TabIndex = 4;
-          
             // 
             // pax_id
             // 
@@ -480,7 +477,6 @@
             this.txterr_msg.ReadOnly = true;
             this.txterr_msg.Size = new System.Drawing.Size(174, 22);
             this.txterr_msg.TabIndex = 3;
-
             // 
             // txterr_num
             // 
@@ -489,7 +485,6 @@
             this.txterr_num.ReadOnly = true;
             this.txterr_num.Size = new System.Drawing.Size(174, 22);
             this.txterr_num.TabIndex = 2;
-          
             // 
             // label4
             // 
@@ -499,7 +494,6 @@
             this.label4.Size = new System.Drawing.Size(56, 16);
             this.label4.TabIndex = 1;
             this.label4.Text = "err_msg";
-        
             // 
             // label3
             // 
@@ -509,7 +503,6 @@
             this.label3.Size = new System.Drawing.Size(55, 16);
             this.label3.TabIndex = 0;
             this.label3.Text = "err_num";
-          
             // 
             // trip_id
             // 
@@ -519,7 +512,6 @@
             this.trip_id.Size = new System.Drawing.Size(43, 16);
             this.trip_id.TabIndex = 23;
             this.trip_id.Text = "trip_id";
-         
             // 
             // txt2
             // 
@@ -527,7 +519,6 @@
             this.txt2.Name = "txt2";
             this.txt2.Size = new System.Drawing.Size(174, 22);
             this.txt2.TabIndex = 26;
-          
             // 
             // txt1
             // 
@@ -535,7 +526,7 @@
             this.txt1.Name = "txt1";
             this.txt1.Size = new System.Drawing.Size(174, 22);
             this.txt1.TabIndex = 25;
-    
+            this.txt1.TextChanged += new System.EventHandler(this.txt1_TextChanged);
             // 
             // button1
             // 
@@ -555,7 +546,6 @@
             this.label1.Size = new System.Drawing.Size(97, 16);
             this.label1.TabIndex = 28;
             this.label1.Text = "include_cancel";
-       
             // 
             // txt3
             // 
@@ -564,9 +554,8 @@
             this.txt3.Size = new System.Drawing.Size(174, 22);
             this.txt3.TabIndex = 29;
             this.txt3.Text = "\r\n";
-           
             // 
-            // GetPaxListRecord
+            // GetPaxList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -579,7 +568,7 @@
             this.Controls.Add(this.txt2);
             this.Controls.Add(this.txt1);
             this.Controls.Add(this.button1);
-            this.Name = "GetPaxListRecord";
+            this.Name = "GetPaxList";
             this.Text = "GetPaxList";
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
