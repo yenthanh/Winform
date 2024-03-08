@@ -87,7 +87,7 @@
             // voyage_date
             // 
             this.voyage_date.AutoSize = true;
-            this.voyage_date.Location = new System.Drawing.Point(254, 13);
+            this.voyage_date.Location = new System.Drawing.Point(301, 13);
             this.voyage_date.Name = "voyage_date";
             this.voyage_date.Size = new System.Drawing.Size(87, 16);
             this.voyage_date.TabIndex = 24;
@@ -515,25 +515,27 @@
             // 
             // txt2
             // 
-            this.txt2.Location = new System.Drawing.Point(347, 10);
+            this.txt2.Location = new System.Drawing.Point(394, 10);
             this.txt2.Name = "txt2";
             this.txt2.Size = new System.Drawing.Size(174, 22);
             this.txt2.TabIndex = 26;
+            this.txt2.Text = "20240307";
             // 
             // txt1
             // 
-            this.txt1.Location = new System.Drawing.Point(73, 7);
+            this.txt1.Location = new System.Drawing.Point(125, 7);
             this.txt1.Name = "txt1";
-            this.txt1.Size = new System.Drawing.Size(174, 22);
+            this.txt1.Size = new System.Drawing.Size(159, 22);
             this.txt1.TabIndex = 25;
+            this.txt1.Text = "HFF124";
             this.txt1.TextChanged += new System.EventHandler(this.txt1_TextChanged);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(406, 43);
+            this.button1.Location = new System.Drawing.Point(453, 40);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(115, 33);
-            this.button1.TabIndex = 27;
+            this.button1.TabIndex = 28;
             this.button1.Text = "Get Pax List";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -549,11 +551,11 @@
             // 
             // txt3
             // 
-            this.txt3.Location = new System.Drawing.Point(125, 48);
+            this.txt3.Location = new System.Drawing.Point(125, 45);
             this.txt3.Name = "txt3";
-            this.txt3.Size = new System.Drawing.Size(174, 22);
-            this.txt3.TabIndex = 29;
-            this.txt3.Text = "\r\n";
+            this.txt3.Size = new System.Drawing.Size(159, 22);
+            this.txt3.TabIndex = 27;
+            this.txt3.Text = "\r\n0";
             // 
             // GetPaxList
             // 
