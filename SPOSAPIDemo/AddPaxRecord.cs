@@ -73,24 +73,20 @@ namespace SPOSAPIDemo
                         break;
                     }
                 }
-                if (row.IsNewRow)
+
+                if (row.IsNewRow || shouldRemoveRow)
                 {
                     indexesToRemove.Add(i);
-                    continue;
                 }
-                else if (shouldRemoveRow)
-                {
-                    dataGridView1.Rows.RemoveAt(i);
-                }
-                Array.Resize(ref pax_details, pax_details.Length - indexesToRemove.Count);
             }
+            Array.Resize(ref pax_details, pax_details.Length - indexesToRemove.Count);
             var response = await Helper.AddPax(token, textBox1.Text, textBox2.Text, pax_details);
             if (!string.IsNullOrEmpty(response.error))
             {
                 MessageBox.Show(response.error);
             }
             else
-            {
+            {              
                 foreach (var dt in response.data)
                 {
                     dataGridView2.Rows.Add(dt.out_num, dt.out_str, dt.boarding_pass_number, dt.pax_id);
