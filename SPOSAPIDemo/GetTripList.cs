@@ -30,7 +30,7 @@ namespace SPOSAPIDemo
 
                 foreach (var a in response.data)
                 {
-                    dataGridView2.Rows.Add(a.trip_code, a.origin, a.destination,
+                    dataGridView2.Rows.Add(a.trip_id, a.origin, a.destination,
                                            a.gate_id, a.departure_status, a.arrival_status
                                            , a.checkin_status, a.pre_imm_status, a.boarding_status
                                            , a.boarding_time, a.boarding_close_time, a.pre_imm_time
