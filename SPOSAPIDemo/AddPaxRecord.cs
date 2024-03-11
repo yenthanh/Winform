@@ -16,10 +16,12 @@ namespace SPOSAPIDemo
         {
             InitializeComponent();
             token = Token;
+            AddDefaultValue();
         }
 
         private async void button1_Click(object sender, EventArgs e)
         {
+            List<int> indexesToRemove = new List<int>();
             var pax_details = new PaxDetailsAdd[] { };
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
@@ -59,6 +61,29 @@ namespace SPOSAPIDemo
 
                 pax_details = pax_details.Concat(new PaxDetailsAdd[] { details }).ToArray();
             }
+            for (int i = dataGridView1.Rows.Count - 1; i >= 0; i--)
+            {
+                DataGridViewRow row = dataGridView1.Rows[i];
+                bool shouldRemoveRow = false;
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    if (cell.Value == null || cell.Value == DBNull.Value)
+                    {
+                        shouldRemoveRow = true;
+                        break;
+                    }
+                }
+                if (row.IsNewRow)
+                {
+                    indexesToRemove.Add(i);
+                    continue;
+                }
+                else if (shouldRemoveRow)
+                {
+                    dataGridView1.Rows.RemoveAt(i);
+                }
+                Array.Resize(ref pax_details, pax_details.Length - indexesToRemove.Count);
+            }
             var response = await Helper.AddPax(token, textBox1.Text, textBox2.Text, pax_details);
             if (!string.IsNullOrEmpty(response.error))
             {
@@ -75,57 +100,57 @@ namespace SPOSAPIDemo
             }
 
         }
-
-        private void dataGridView1_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
+        private void AddDefaultValue()
         {
+            int rowIndex = 0;
             // passport_type
-            e.Row.Cells["Column1"].Value = "ABC34501";
+            dataGridView1.Rows[rowIndex].Cells["Column1"].Value = "ABC34501";
             //details.passport_type
-            e.Row.Cells["Column2"].Value = "PA";
+            dataGridView1.Rows[rowIndex].Cells["Column2"].Value = "PA";
             //details.last_name
-            e.Row.Cells["Column3"].Value = "Doe";
+            dataGridView1.Rows[rowIndex].Cells["Column3"].Value = "Doe";
             //details.first_name
-            e.Row.Cells["Column4"].Value = "John";
+            dataGridView1.Rows[rowIndex].Cells["Column4"].Value = "John";
             //details.gender
-            e.Row.Cells["Column5"].Value = "M";
+            dataGridView1.Rows[rowIndex].Cells["Column5"].Value = "M";
             //details.nationality
-            e.Row.Cells["Column6"].Value = "SGP";
+            dataGridView1.Rows[rowIndex].Cells["Column6"].Value = "SGP";
             //details.dob
-            e.Row.Cells["Column7"].Value = "19830219";
+            dataGridView1.Rows[rowIndex].Cells["Column7"].Value = "19830219";
             //details.country_of_birth
-            e.Row.Cells["Column8"].Value = "SGP";
+            dataGridView1.Rows[rowIndex].Cells["Column8"].Value = "SGP";
             //details.travel_doc_exp_date
-            e.Row.Cells["Column9"].Value = "20261104";
+            dataGridView1.Rows[rowIndex].Cells["Column9"].Value = "20261104";
             //details.country_of_issue
-            e.Row.Cells["Column10"].Value = "SGP";
+            dataGridView1.Rows[rowIndex].Cells["Column10"].Value = "SGP";
             //details.country_of_residence
-            e.Row.Cells["Column11"].Value = "SGP";
+            dataGridView1.Rows[rowIndex].Cells["Column11"].Value = "SGP";
             //details.destination
-            e.Row.Cells["Column12"].Value = "TMFT";
+            dataGridView1.Rows[rowIndex].Cells["Column12"].Value = "TMFT";
             //details.ticket_no
-            e.Row.Cells["Column13"].Value = "10032176";
+            dataGridView1.Rows[rowIndex].Cells["Column13"].Value = "10032176";
             //details.remarks
-            e.Row.Cells["Column14"].Value = "remarks";
+            dataGridView1.Rows[rowIndex].Cells["Column14"].Value = "remarks";
             //details.customer_book_code
-            e.Row.Cells["Column15"].Value = "ANJOABC1";
+            dataGridView1.Rows[rowIndex].Cells["Column15"].Value = "ANJOABC1";
             //details.cabin
-            e.Row.Cells["Column16"].Value = "Economy";
+            dataGridView1.Rows[rowIndex].Cells["Column16"].Value = "Economy";
             //details.pax_type
-            e.Row.Cells["Column17"].Value = "A";
+            dataGridView1.Rows[rowIndex].Cells["Column17"].Value = "A";
             //details.bag_allowance
-            e.Row.Cells["Column18"].Value = 10;
+            dataGridView1.Rows[rowIndex].Cells["Column18"].Value = 10;
             //details.additional_bag_allowance
-            e.Row.Cells["Column19"].Value = 20;
+            dataGridView1.Rows[rowIndex].Cells["Column19"].Value = 20;
             //details.security_program_flag
-            e.Row.Cells["Column20"].Value = "A1";
+            dataGridView1.Rows[rowIndex].Cells["Column20"].Value = "A1";
             //details.membership_no
-            e.Row.Cells["Column21"].Value = "DF162";
+            dataGridView1.Rows[rowIndex].Cells["Column21"].Value = "DF162";
             //details.check_in
-            e.Row.Cells["Column22"].Value = 1;
+            dataGridView1.Rows[rowIndex].Cells["Column22"].Value = 1;
             //details.source_check_in
-            e.Row.Cells["Column23"].Value = "FCI";
+            dataGridView1.Rows[rowIndex].Cells["Column23"].Value = "FCI";
             //details.ssr
-            e.Row.Cells["Column24"].Value = "VJML,BG30";
+            dataGridView1.Rows[rowIndex].Cells["Column24"].Value = "VJML,BG30";
         }
     }
 }
